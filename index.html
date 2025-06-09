@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JEE Foundation Chemistry - Home</title>
+  <style>
+    /* CSS Variables for Theming */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #34495e;
+      --accent-color: #2980b9;
+      --light-bg: #f4f6f8;
+      --dark-text: #2c3e50;
+      --card-bg: #ffffff;
+      --card-hover-bg: #2980b9;
+      --card-hover-text: #ffffff;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --gap-large: 32px;
+      --gap-medium: 20px;
+      --gap-small: 12px;
+      --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --body-font: 'Arial', sans-serif;
+      --transition-speed: 0.3s;
+    }
+
+    /* Global Reset & Basics */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: var(--body-font);
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      padding: var(--gap-large);
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Container */
+    .container {
+      display: grid;
+      gap: var(--gap-large);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: var(--gap-large);
+    }
+    header h1 {
+      font-family: var(--heading-font);
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+    }
+    header h1::after {
+      content: '';
+      display: block;
+      width: 40%;
+      height: 4px;
+      background-color: var(--accent-color);
+      margin: var(--gap-small) auto 0;
+      border-radius: 2px;
+    }
+    header p {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      margin-top: var(--gap-small);
+    }
+
+    /* Grid of Cards */
+    .grid {
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    @media (min-width: 1200px) {
+      .grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    @media (min-width: 768px) and (max-width: 1199px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 767px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: var(--gap-medium);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: background-color var(--transition-speed), color var(--transition-speed);
+      text-align: center;
+    }
+    .card:hover {
+      background-color: var(--card-hover-bg);
+      color: var(--card-hover-text);
+    }
+    .card h3 {
+      font-family: var(--heading-font);
+      font-size: 1.25rem;
+      margin-bottom: var(--gap-small);
+    }
+    .card p {
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: var(--gap-large);
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>JEE Foundation Chemistry</h1>
+      <p>Select a unit or section to begin your revision</p>
+    </header>
+
+    <!-- Grid of Unit Links -->
+    <div class="grid">
+      <!-- Unit 1 -->
+      <a href="unit1.html" class="card">
+        <h3>Unit 1</h3>
+        <p>Matter and Its Nature</p>
+      </a>
+      <!-- Unit 2 -->
+      <a href="unit2.html" class="card">
+        <h3>Unit 2</h3>
+        <p>Atomic Structure</p>
+      </a>
+      <!-- Unit 3 -->
+      <a href="unit3.html" class="card">
+        <h3>Unit 3</h3>
+        <p>Mole Concept & Stoichiometry</p>
+      </a>
+      <!-- Unit 4 -->
+      <a href="unit4.html" class="card">
+        <h3>Unit 4</h3>
+        <p>Structure of Atom (Adv.)</p>
+      </a>
+      <!-- Unit 5 -->
+      <a href="unit5.html" class="card">
+        <h3>Unit 5</h3>
+        <p>Periodic Classification</p>
+      </a>
+      <!-- Unit 6 -->
+      <a href="unit6.html" class="card">
+        <h3>Unit 6</h3>
+        <p>Chemical Bonding</p>
+      </a>
+      <!-- Unit 7 -->
+      <a href="unit7.html" class="card">
+        <h3>Unit 7</h3>
+        <p>Acids, Bases & Salts</p>
+      </a>
+      <!-- Unit 8 -->
+      <a href="unit8.html" class="card">
+        <h3>Unit 8</h3>
+        <p>Chemical Reactions & Equations</p>
+      </a>
+      <!-- Unit 9 -->
+      <a href="unit9.html" class="card">
+        <h3>Unit 9</h3>
+        <p>Metals & Non-Metals</p>
+      </a>
+      <!-- Unit 10 -->
+      <a href="unit10.html" class="card">
+        <h3>Unit 10</h3>
+        <p>Carbon & Its Compounds</p>
+      </a>
+      <!-- Unit 11 -->
+      <a href="unit11.html" class="card">
+        <h3>Unit 11</h3>
+        <p>States of Matter</p>
+      </a>
+      <!-- Unit 12 -->
+      <a href="unit12.html" class="card">
+        <h3>Unit 12</h3>
+        <p>Thermodynamics (Intro)</p>
+      </a>
+      <!-- Unit 13 -->
+      <a href="unit13.html" class="card">
+        <h3>Unit 13</h3>
+        <p>Solutions (Basic)</p>
+      </a>
+      <!-- Unit 14 -->
+      <a href="unit14.html" class="card">
+        <h3>Unit 14</h3>
+        <p>Environmental Chemistry</p>
+      </a>
+      <!-- Unit 15 -->
+      <a href="unit15.html" class="card">
+        <h3>Unit 15</h3>
+        <p>Basic Organic Chemistry</p>
+      </a>
+      <!-- Bonus Topics -->
+      <a href="bonus.html" class="card">
+        <h3>Bonus Topics</h3>
+        <p>Optional Enrichment</p>
+      </a>
+      <!-- JEE Questions -->
+      <a href="jeeQ.html" class="card">
+        <h3>JEE Questions</h3>
+        <p>Practice & MCQs</p>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 JEE Foundation Chemistry. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

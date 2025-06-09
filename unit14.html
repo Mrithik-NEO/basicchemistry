@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<div class="back-button-container">
+  <a href="index.html" class="back-button">← Back to Home</a>
+</div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unit 14: Environmental Chemistry (Foundation)</title>
+  <style>
+    /* CSS Variables for Theming */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #34495e;
+      --accent-color: #27ae60;
+      --light-bg: #f4f6f8;
+      --dark-text: #2c3e50;
+      --table-header-bg: #34495e;
+      --table-header-text: #ecf0f1;
+      --table-row-odd: #ffffff;
+      --table-row-even: #ecf0f1;
+      --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --body-font: 'Arial', sans-serif;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition-speed: 0.3s;
+      --gap-large: 32px;
+      --gap-medium: 20px;
+      --gap-small: 12px;
+    }
+
+    /* Global Reset & Basics */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: var(--body-font);
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      padding: var(--gap-large);
+    }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    a:hover {
+      color: darken(var(--accent-color), 10%);
+    }
+
+    /* Main Container as Grid */
+    .container {
+      display: grid;
+      gap: var(--gap-large);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: var(--gap-large);
+    }
+    header h1 {
+      font-family: var(--heading-font);
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+    }
+    header h1::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 4px;
+      background-color: var(--accent-color);
+      margin: var(--gap-small) auto 0;
+      border-radius: 2px;
+    }
+    header p {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      margin-top: var(--gap-small);
+    }
+
+    /* Section Styling */
+    .unit-section {
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: var(--gap-large) var(--gap-medium);
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    .unit-section h2 {
+      font-family: var(--heading-font);
+      font-size: 1.75rem;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--gap-medium);
+    }
+    .unit-section h2 .icon {
+      font-size: 1.5rem;
+      margin-right: var(--gap-small);
+      color: var(--accent-color);
+    }
+    .unit-section h2::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background-color: var(--secondary-color);
+      margin-left: var(--gap-small);
+      border-radius: 2px;
+    }
+
+    /* Two-Column Grid for Subsections */
+    .section-grid-2 {
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    @media (min-width: 768px) {
+      .section-grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* Bullet List Styles */
+    .unit-list {
+      list-style: none;
+      margin-left: var(--gap-medium);
+    }
+    .unit-list li {
+      position: relative;
+      padding-left: 1.5em;
+      margin-bottom: var(--gap-small);
+      font-size: 1rem;
+    }
+    .unit-list li::before {
+      content: '🔹';
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.1rem;
+      color: var(--accent-color);
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: var(--gap-medium);
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+    thead {
+      background-color: var(--table-header-bg);
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+    th {
+      color: var(--table-header-text);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: var(--table-row-odd);
+    }
+    tbody tr:nth-child(even) {
+      background-color: var(--table-row-even);
+    }
+    tbody tr:hover {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      transition: background-color var(--transition-speed);
+    }
+
+    /* Responsive Table Adjustments */
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      tr {
+        border: 1px solid var(--secondary-color);
+        margin-bottom: var(--gap-medium);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+      td {
+        position: relative;
+        padding-left: 50%;
+        border: none;
+        border-bottom: 1px solid var(--secondary-color);
+      }
+      td::before {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+      }
+      td:nth-of-type(1)::before { content: attr(data-label); }
+      td:nth-of-type(2)::before { content: attr(data-label); }
+      td:nth-of-type(3)::before { content: attr(data-label); }
+      td:nth-of-type(4)::before { content: attr(data-label); }
+      td:nth-of-type(5)::before { content: attr(data-label); }
+    }
+
+    /* Code Styling */
+    code {
+      background-color: #eef3f8;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>Unit 14 – Environmental Chemistry (Foundation)</h1>
+      <p>JEE Foundation: Pollution, Acid Rain, Ozone Depletion, Greenhouse Effect, and Hazards</p>
+    </header>
+
+    <!-- 1. Air and Water Pollution -->
+    <section class="unit-section" id="air-water-pollution">
+      <h2><span class="icon">🔹</span>1. Air and Water Pollution</h2>
+      <div class="section-grid-2">
+        <!-- Air Pollution -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            🌫️ Air Pollution
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Presence of harmful gases or particles in the air.
+          </p>
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em); margin-bottom: var(--gap-small);">
+            <li><strong>CO (Carbon monoxide):</strong> From incomplete combustion</li>
+            <li><strong>SO₂, NO₂:</strong> From vehicles and industries</li>
+            <li><strong>Particulate Matter (PM2.5/PM10):</strong> Dust, smoke</li>
+            <li><strong>CFCs:</strong> Chlorofluorocarbons from aerosols, coolants</li>
+          </ul>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            <strong>Effects:</strong> Respiratory issues, smog formation, acid rain, ozone depletion
+          </p>
+        </div>
+        <!-- Water Pollution -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            💧 Water Pollution
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Contamination of water bodies (rivers, lakes, oceans) by harmful substances.
+          </p>
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em); margin-bottom: var(--gap-small);">
+            <li><strong>Industrial waste:</strong> Heavy metals, acids</li>
+            <li><strong>Sewage and domestic waste</strong></li>
+            <li><strong>Pesticides and fertilizers:</strong> Nitrates, phosphates</li>
+          </ul>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            <strong>Effects:</strong> Diseases (cholera, typhoid), death of aquatic life, eutrophication
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Acid Rain -->
+    <section class="unit-section" id="acid-rain">
+      <h2><span class="icon">🔹</span>2. Acid Rain</h2>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+        <strong>Definition:</strong> Rainfall with pH &lt; 5.6 due to dissolved acidic oxides (SO₂, NO₂).
+      </p>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem; margin-top: var(--gap-small);">
+        <strong>Chemical Reactions:</strong><br>
+        <code>SO₂ + O₂ → SO₃</code><br>
+        <code>SO₃ + H₂O → H₂SO₄</code><br>
+        <code>2NO₂ + H₂O → HNO₂ + HNO₃</code>
+      </p>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem; margin-top: var(--gap-small);">
+        <strong>Effects:</strong> Damages crops, aquatic life; corrodes buildings (e.g., Taj Mahal); acidifies soil and water bodies.
+      </p>
+    </section>
+
+    <!-- 3. Ozone Layer Depletion -->
+    <section class="unit-section" id="ozone-depletion">
+      <h2><span class="icon">🔹</span>3. Ozone Layer Depletion</h2>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+        <strong>Ozone Layer:</strong> Found in the stratosphere (10–50 km above Earth). Protects Earth from harmful UV radiation.
+      </p>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem; margin-top: var(--gap-small);">
+        <strong>Depletion Cause:</strong> CFCs (Chlorofluorocarbons) used in ACs, refrigerators, aerosols. CFCs release Cl· radicals that destroy ozone:
+      </p>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem; margin-top: var(--gap-small);">
+        <code>Cl + O₃ → ClO + O₂</code><br>
+        <code>ClO + O → Cl + O₂</code><br>
+        One Cl· can destroy thousands of O₃ molecules.
+      </p>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem; margin-top: var(--gap-small);">
+        <strong>Effects:</strong> Skin cancer, eye damage (UV-B exposure), reduced crop productivity, climate disruption.
+      </p>
+    </section>
+
+    <!-- 4. Greenhouse Effect -->
+    <section class="unit-section" id="greenhouse-effect">
+      <h2><span class="icon">🔹</span>4. Greenhouse Effect</h2>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+        <strong>Definition:</strong> Warming of Earth due to trapping of heat by greenhouse gases (GHGs) in the atmosphere.
+      </p>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem; margin-top: var(--gap-small);">
+        <strong>Greenhouse Gases:</strong> CO₂, CH₄, N₂O, H₂O vapor, CFCs. These gases absorb infrared radiation and trap heat.
+      </p>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem; margin-top: var(--gap-small);">
+        <strong>Effects:</strong> Global warming; melting of glaciers, sea-level rise; extreme weather events (floods, droughts); threat to biodiversity.
+      </p>
+    </section>
+
+    <!-- 5. Chemical Hazards and Their Health Impact -->
+    <section class="unit-section" id="chemical-hazards">
+      <h2><span class="icon">🔹</span>5. Chemical Hazards and Their Health Impact</h2>
+      <div class="section-grid-2">
+        <!-- Common Hazardous Chemicals -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            🧪 Common Hazardous Chemicals
+          </h3>
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+            <li><strong>Lead (Pb):</strong> Brain damage in children</li>
+            <li><strong>Mercury (Hg):</strong> Nervous system disorders</li>
+            <li><strong>Pesticides (DDT, Endosulfan):</strong> Cancer risk, reproductive disorders</li>
+            <li><strong>Plasticizers (e.g., BPA):</strong> Hormonal imbalances</li>
+          </ul>
+        </div>
+        <!-- Routes of Exposure & Health Effects -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            🚷 Routes of Exposure & Health Effects
+          </h3>
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em); margin-bottom: var(--gap-small);">
+            <li><strong>Inhalation:</strong> Breathing gases or particles</li>
+            <li><strong>Ingestion:</strong> Contaminated food/water</li>
+            <li><strong>Skin contact:</strong> Industrial chemicals, cleaning agents</li>
+          </ul>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            <strong>Health Effects:</strong> Respiratory and nervous system disorders; cancer and birth defects; organ failure from long-term exposure.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Concepts to Master -->
+    <section class="unit-section" id="key-concepts">
+      <h2><span class="icon">🎯</span>Key Concepts to Master</h2>
+      <ul class="unit-list">
+        <li>Identify causes and effects of air and water pollution.</li>
+        <li>Explain acid rain, ozone depletion, and the greenhouse effect.</li>
+        <li>Understand chemical hazards and their pathways into the human body.</li>
+        <li>Relate chemistry to environment and health issues.</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

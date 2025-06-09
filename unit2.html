@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<div class="back-button-container">
+  <a href="index.html" class="back-button">← Back to Home</a>
+</div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unit 2: Atomic Structure</title>
+  <style>
+    /* CSS Variables for Theming */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #34495e;
+      --accent-color: #16a085;
+      --light-bg: #f4f6f8;
+      --dark-text: #2c3e50;
+      --table-header-bg: #34495e;
+      --table-header-text: #ecf0f1;
+      --table-row-odd: #ffffff;
+      --table-row-even: #ecf0f1;
+      --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --body-font: 'Arial', sans-serif;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition-speed: 0.3s;
+    }
+
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: var(--body-font);
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      padding: 20px;
+    }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    a:hover {
+      color: darken(var(--accent-color), 10%);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 30px 40px;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    header h1 {
+      font-family: var(--heading-font);
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+      position: relative;
+      display: inline-block;
+    }
+    header h1::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 4px;
+      background-color: var(--accent-color);
+      margin: 8px auto 0;
+      border-radius: 2px;
+    }
+    header p {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      margin-top: 10px;
+    }
+
+    /* Section Titles */
+    .unit-section {
+      margin-bottom: 40px;
+    }
+    .unit-section h2 {
+      font-family: var(--heading-font);
+      font-size: 1.75rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+    .unit-section h2 .icon {
+      font-size: 1.5rem;
+      margin-right: 10px;
+      color: var(--accent-color);
+    }
+    .unit-section h2::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background-color: var(--secondary-color);
+      margin-left: 15px;
+      border-radius: 2px;
+    }
+
+    /* Bullet List Styles */
+    .unit-list {
+      margin-left: 1.5rem;
+      margin-bottom: 20px;
+      list-style: none;
+    }
+    .unit-list li {
+      position: relative;
+      padding-left: 1.5em;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+    .unit-list li::before {
+      content: '🔹';
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.1rem;
+      line-height: 1;
+      color: var(--accent-color);
+    }
+
+    /* Checkmark/Cross List */
+    .dalton-list {
+      margin-left: 1.5rem;
+      margin-bottom: 20px;
+      list-style: none;
+      font-size: 1rem;
+    }
+    .dalton-list li {
+      margin-bottom: 10px;
+      padding-left: 1.5em;
+      position: relative;
+    }
+    .dalton-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+    thead {
+      background-color: var(--table-header-bg);
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+    th {
+      color: var(--table-header-text);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: var(--table-row-odd);
+    }
+    tbody tr:nth-child(even) {
+      background-color: var(--table-row-even);
+    }
+    tbody tr:hover {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      transition: background-color var(--transition-speed);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      .unit-section h2 {
+        font-size: 1.5rem;
+      }
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      tr {
+        border: 1px solid var(--secondary-color);
+        margin-bottom: 10px;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+      td {
+        position: relative;
+        padding-left: 50%;
+        border: none;
+        border-bottom: 1px solid var(--secondary-color);
+      }
+      td::before {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+      }
+      /* Label each cell for mobile */
+      td:nth-of-type(1)::before { content: attr(data-label); }
+      td:nth-of-type(2)::before { content: attr(data-label); }
+      td:nth-of-type(3)::before { content: attr(data-label); }
+      td:nth-of-type(4)::before { content: attr(data-label); }
+      td:nth-of-type(5)::before { content: attr(data-label); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Unit 2 – Atomic Structure</h1>
+      <p>Essential Concepts for JEE Foundation Chemistry</p>
+    </header>
+
+    <!-- 1. Dalton’s Atomic Theory -->
+    <section class="unit-section" id="dalton-theory">
+      <h2><span class="icon">🔹</span>1. Dalton’s Atomic Theory (1808)</h2>
+      <ul class="dalton-list">
+        <li>✅ All matter is made of tiny, indivisible particles called atoms.</li>
+        <li>❌ Atoms of the same element are identical in mass and properties <span style="color: #888;">(now disproved)</span>.</li>
+        <li>✅ Atoms combine in fixed whole-number ratios to form compounds.</li>
+        <li>✅ Atoms cannot be created or destroyed in chemical reactions.</li>
+        <li>✅ Chemical reactions are rearrangements of atoms.</li>
+      </ul>
+      <p style="margin-left: 1.5rem; font-size: 1rem;">
+        🧠 Modern atomic theory modifies Dalton’s ideas by including subatomic particles and isotopes.
+      </p>
+    </section>
+
+    <!-- 2. Subatomic Particles -->
+    <section class="unit-section" id="subatomic-particles">
+      <h2><span class="icon">🔹</span>2. Subatomic Particles</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Particle</th>
+            <th>Symbol</th>
+            <th>Charge</th>
+            <th>Mass (approx.)</th>
+            <th>Discovered by</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Particle">Proton</td>
+            <td data-label="Symbol">p⁺</td>
+            <td data-label="Charge">+1</td>
+            <td data-label="Mass (approx.)">1 amu</td>
+            <td data-label="Discovered by">Goldstein</td>
+          </tr>
+          <tr>
+            <td data-label="Particle">Neutron</td>
+            <td data-label="Symbol">n⁰</td>
+            <td data-label="Charge">0</td>
+            <td data-label="Mass (approx.)">1 amu</td>
+            <td data-label="Discovered by">Chadwick</td>
+          </tr>
+          <tr>
+            <td data-label="Particle">Electron</td>
+            <td data-label="Symbol">e⁻</td>
+            <td data-label="Charge">−1</td>
+            <td data-label="Mass (approx.)">1/1836 amu</td>
+            <td data-label="Discovered by">J.J. Thomson</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-left: 1.5rem; font-size: 1rem;">
+        🔬 Nucleus contains protons and neutrons; electrons revolve around the nucleus in orbits.
+      </p>
+    </section>
+
+    <!-- 3. Atomic Number (Z) and Mass Number (A) -->
+    <section class="unit-section" id="atomic-mass-numbers">
+      <h2><span class="icon">🔹</span>3. Atomic Number (Z) and Mass Number (A)</h2>
+      <ul class="unit-list">
+        <li>Atomic Number (Z) = Number of protons</li>
+        <li>Mass Number (A) = Number of protons + neutrons</li>
+        <li>🧪 Number of neutrons = A − Z</li>
+        <li>🧪 In a neutral atom, number of protons = number of electrons</li>
+      </ul>
+    </section>
+
+    <!-- 4. Isotopes and Isobars -->
+    <section class="unit-section" id="isotopes-isobars">
+      <h2><span class="icon">🔹</span>4. Isotopes and Isobars</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Definition</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Type">Isotopes</td>
+            <td data-label="Definition">Same atomic number (Z), different mass number (A)</td>
+            <td data-label="Example">¹H, ²H, ³H (Hydrogen isotopes)</td>
+          </tr>
+          <tr>
+            <td data-label="Type">Isobars</td>
+            <td data-label="Definition">Same mass number (A), different atomic numbers (Z)</td>
+            <td data-label="Example">⁴⁰Ca and ⁴⁰Ar</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 5. Bohr’s Model of the Atom -->
+    <section class="unit-section" id="bohr-model">
+      <h2><span class="icon">🔹</span>5. Bohr’s Model of the Atom</h2>
+      <ul class="unit-list">
+        <li>Electrons revolve in fixed circular orbits (energy levels or shells) around the nucleus.</li>
+        <li>Quantized energy levels: Electrons don’t lose energy while in a shell.</li>
+        <li>Energy is absorbed/emitted when electrons jump between levels.</li>
+      </ul>
+      <p style="margin-left: 1.5rem; font-size: 1rem;">
+        🧠 Shells are denoted by K, L, M, N or n = 1, 2, 3, 4...
+      </p>
+      <p style="margin-left: 1.5rem; font-size: 1rem;">
+        <strong>Bohr’s Formula for Energy Level:</strong><br />
+        <code>E<sub>n</sub> = −13.6 Z² / n² eV</code> (for hydrogen-like atoms)
+      </p>
+    </section>
+
+    <!-- 6. Introduction to Quantum Numbers -->
+    <section class="unit-section" id="quantum-numbers">
+      <h2><span class="icon">🔹</span>6. Introduction to Quantum Numbers</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Describes</th>
+            <th>Values</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Symbol">n</td>
+            <td data-label="Name">Principal quantum number</td>
+            <td data-label="Describes">Energy level / shell</td>
+            <td data-label="Values">1, 2, 3, …</td>
+          </tr>
+          <tr>
+            <td data-label="Symbol">l</td>
+            <td data-label="Name">Azimuthal quantum number</td>
+            <td data-label="Describes">Subshell / shape of orbital</td>
+            <td data-label="Values">0 to (n − 1)</td>
+          </tr>
+          <tr>
+            <td data-label="Symbol">m</td>
+            <td data-label="Name">Magnetic quantum number</td>
+            <td data-label="Describes">Orientation of orbital</td>
+            <td data-label="Values">−l to +l</td>
+          </tr>
+          <tr>
+            <td data-label="Symbol">s</td>
+            <td data-label="Name">Spin quantum number</td>
+            <td data-label="Describes">Spin of electron</td>
+            <td data-label="Values">+½ or −½</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-left: 1.5rem; font-size: 1rem;">
+        Example: For an electron in a 2p orbital → <code>n = 2</code>, <code>l = 1</code>, <code>m = −1/0/+1</code>, <code>s = ±½</code>.
+      </p>
+    </section>
+
+    <!-- Key Concepts to Master -->
+    <section class="unit-section" id="key-concepts">
+      <h2><span class="icon">🎯</span>Key Concepts to Master</h2>
+      <ul class="unit-list">
+        <li>Recall names, charge, and discovery of subatomic particles.</li>
+        <li>Calculate atomic number, mass number, and number of neutrons.</li>
+        <li>Identify isotopes and isobars from given data.</li>
+        <li>Understand Bohr's postulates and apply the energy formula.</li>
+        <li>Interpret the meaning of quantum numbers (n, l, m, s).</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

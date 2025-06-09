@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<div class="back-button-container">
+  <a href="index.html" class="back-button">← Back to Home</a>
+</div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unit 10: Carbon and Its Compounds</title>
+  <style>
+    /* CSS Variables for Theming */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #34495e;
+      --accent-color: #8e44ad;
+      --light-bg: #f4f6f8;
+      --dark-text: #2c3e50;
+      --table-header-bg: #34495e;
+      --table-header-text: #ecf0f1;
+      --table-row-odd: #ffffff;
+      --table-row-even: #ecf0f1;
+      --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --body-font: 'Arial', sans-serif;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition-speed: 0.3s;
+      --gap-large: 32px;
+      --gap-medium: 20px;
+      --gap-small: 12px;
+    }
+
+    /* Global Reset & Basics */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: var(--body-font);
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      padding: var(--gap-large);
+    }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    a:hover {
+      color: darken(var(--accent-color), 10%);
+    }
+
+    /* Main Container as Grid */
+    .container {
+      display: grid;
+      gap: var(--gap-large);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: var(--gap-large);
+    }
+    header h1 {
+      font-family: var(--heading-font);
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+    }
+    header h1::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 4px;
+      background-color: var(--accent-color);
+      margin: var(--gap-small) auto 0;
+      border-radius: 2px;
+    }
+    header p {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      margin-top: var(--gap-small);
+    }
+
+    /* Section Styling */
+    .unit-section {
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: var(--gap-large) var(--gap-medium);
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    .unit-section h2 {
+      font-family: var(--heading-font);
+      font-size: 1.75rem;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--gap-medium);
+    }
+    .unit-section h2 .icon {
+      font-size: 1.5rem;
+      margin-right: var(--gap-small);
+      color: var(--accent-color);
+    }
+    .unit-section h2::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background-color: var(--secondary-color);
+      margin-left: var(--gap-small);
+      border-radius: 2px;
+    }
+
+    /* Two-Column Grid for Subsections */
+    .section-grid-2 {
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    @media (min-width: 768px) {
+      .section-grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* Bullet List Styles */
+    .unit-list {
+      list-style: none;
+      margin-left: var(--gap-medium);
+    }
+    .unit-list li {
+      position: relative;
+      padding-left: 1.5em;
+      margin-bottom: var(--gap-small);
+      font-size: 1rem;
+    }
+    .unit-list li::before {
+      content: '🔹';
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.1rem;
+      color: var(--accent-color);
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: var(--gap-medium);
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+    thead {
+      background-color: var(--table-header-bg);
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+    th {
+      color: var(--table-header-text);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: var(--table-row-odd);
+    }
+    tbody tr:nth-child(even) {
+      background-color: var(--table-row-even);
+    }
+    tbody tr:hover {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      transition: background-color var(--transition-speed);
+    }
+
+    /* Responsive Table Adjustments */
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      tr {
+        border: 1px solid var(--secondary-color);
+        margin-bottom: var(--gap-medium);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+      td {
+        position: relative;
+        padding-left: 50%;
+        border: none;
+        border-bottom: 1px solid var(--secondary-color);
+      }
+      td::before {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+      }
+      td:nth-of-type(1)::before { content: attr(data-label); }
+      td:nth-of-type(2)::before { content: attr(data-label); }
+      td:nth-of-type(3)::before { content: attr(data-label); }
+      td:nth-of-type(4)::before { content: attr(data-label); }
+      td:nth-of-type(5)::before { content: attr(data-label); }
+    }
+
+    /* Code Styling */
+    code {
+      background-color: #eef3f8;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>Unit 10 – Carbon and Its Compounds</h1>
+      <p>JEE Foundation: Tetravalency, Structures, Functional Groups, and More</p>
+    </header>
+
+    <!-- 1. Tetravalency of Carbon -->
+    <section class="unit-section" id="tetravalency">
+      <h2><span class="icon">🔹</span>1. Tetravalency of Carbon</h2>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+        Carbon (C) has atomic number 6 → configuration: <code>1s² 2s² 2p²</code><br>
+        It has 4 valence electrons and needs 4 more to complete its octet. Carbon forms 4 covalent bonds with other atoms → Tetravalency.
+      </p>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem; margin-top: var(--gap-small);">
+        Example:<br>
+        Methane (<code>CH₄</code>): C shares 4 electrons with 4 H atoms.
+      </p>
+    </section>
+
+    <!-- 2. Carbon Structures: Chains, Branches, and Rings -->
+    <section class="unit-section" id="carbon-structures">
+      <h2><span class="icon">🔹</span>2. Carbon Structures: Chains, Branches, and Rings</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Structure Type</th>
+            <th>Description</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Structure Type">Straight Chain</td>
+            <td data-label="Description">Carbon atoms in a line</td>
+            <td data-label="Example"><code>CH₃–CH₂–CH₃</code> (Propane)</td>
+          </tr>
+          <tr>
+            <td data-label="Structure Type">Branched Chain</td>
+            <td data-label="Description">Side chains off main chain</td>
+            <td data-label="Example">Isobutane</td>
+          </tr>
+          <tr>
+            <td data-label="Structure Type">Ring Structure</td>
+            <td data-label="Description">Carbon atoms in a closed ring</td>
+            <td data-label="Example"><code>C₆H₁₂</code> (Cyclohexane)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. Functional Groups -->
+    <section class="unit-section" id="functional-groups">
+      <h2><span class="icon">🔹</span>3. Functional Groups</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Functional Group</th>
+            <th>Symbol</th>
+            <th>General Formula</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Functional Group">Alcohol</td>
+            <td data-label="Symbol">–OH</td>
+            <td data-label="General Formula">R–OH</td>
+            <td data-label="Example">Ethanol (<code>CH₃CH₂OH</code>)</td>
+          </tr>
+          <tr>
+            <td data-label="Functional Group">Aldehyde</td>
+            <td data-label="Symbol">–CHO</td>
+            <td data-label="General Formula">R–CHO</td>
+            <td data-label="Example">Ethanal (<code>CH₃CHO</code>)</td>
+          </tr>
+          <tr>
+            <td data-label="Functional Group">Ketone</td>
+            <td data-label="Symbol">–CO–</td>
+            <td data-label="General Formula">R–CO–R'</td>
+            <td data-label="Example">Propanone (<code>CH₃COCH₃</code>)</td>
+          </tr>
+          <tr>
+            <td data-label="Functional Group">Carboxylic Acid</td>
+            <td data-label="Symbol">–COOH</td>
+            <td data-label="General Formula">R–COOH</td>
+            <td data-label="Example">Acetic acid (<code>CH₃COOH</code>)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 4. Homologous Series -->
+    <section class="unit-section" id="homologous-series">
+      <h2><span class="icon">🔹</span>4. Homologous Series</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Series</th>
+            <th>General Formula</th>
+            <th>First Members</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Series">Alkanes</td>
+            <td data-label="General Formula">CₙH₂ₙ₊₂</td>
+            <td data-label="First Members">Methane (<code>CH₄</code>), Ethane</td>
+          </tr>
+          <tr>
+            <td data-label="Series">Alkenes</td>
+            <td data-label="General Formula">CₙH₂ₙ</td>
+            <td data-label="First Members">Ethene (<code>C₂H₄</code>), Propene</td>
+          </tr>
+          <tr>
+            <td data-label="Series">Alcohols</td>
+            <td data-label="General Formula">CₙH₂ₙ₊₁OH</td>
+            <td data-label="First Members">Methanol, Ethanol</td>
+          </tr>
+          <tr>
+            <td data-label="Series">Carboxylic Acids</td>
+            <td data-label="General Formula">CₙH₂ₙO₂</td>
+            <td data-label="First Members">Formic acid, Acetic acid</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 5. Isomerism (Structural) -->
+    <section class="unit-section" id="isomerism">
+      <h2><span class="icon">🔹</span>5. Isomerism (Structural)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Type">Chain isomerism</td>
+            <td data-label="Description">Different carbon chain arrangements</td>
+            <td data-label="Example">Butane vs Isobutane</td>
+          </tr>
+          <tr>
+            <td data-label="Type">Position isomerism</td>
+            <td data-label="Description">Same functional group, different position</td>
+            <td data-label="Example">1-Butanol vs 2-Butanol</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem; margin-top: var(--gap-small);">
+        Example: <code>C₄H₁₀</code> has two isomers:<br>
+        n-butane: <code>CH₃–CH₂–CH₂–CH₃</code><br>
+        isobutane: <code>(CH₃)₂CH–CH₃</code>
+      </p>
+    </section>
+
+    <!-- 6. Properties of Ethanol and Acetic Acid -->
+    <section class="unit-section" id="properties-ethanol-acetic">
+      <h2><span class="icon">🔹</span>6. Properties of Ethanol and Acetic Acid</h2>
+      <div class="section-grid-2">
+        <!-- Ethanol -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            🥃 Ethanol (<code>CH₃CH₂OH</code>)
+          </h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Property">Physical</td>
+                <td data-label="Description">Colorless, liquid, pleasant smell</td>
+              </tr>
+              <tr>
+                <td data-label="Property">Solubility</td>
+                <td data-label="Description">Soluble in water</td>
+              </tr>
+              <tr>
+                <td data-label="Property">Burning</td>
+                <td data-label="Description">Burns with blue flame → CO₂ + H₂O</td>
+              </tr>
+              <tr>
+                <td data-label="Property">Uses</td>
+                <td data-label="Description">Alcoholic beverages, hand sanitizers, fuel (ethyl alcohol)</td>
+              </tr>
+              <tr>
+                <td data-label="Property">Reaction with Na</td>
+                <td data-label="Description"><code>CH₃CH₂OH + Na → Sodium ethoxide + H₂↑</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Acetic Acid -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            🧴 Acetic Acid (<code>CH₃COOH</code>)
+          </h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Property">Smell</td>
+                <td data-label="Description">Pungent, vinegar-like</td>
+              </tr>
+              <tr>
+                <td data-label="Property">Acidity</td>
+                <td data-label="Description">Weak acid</td>
+              </tr>
+              <tr>
+                <td data-label="Property">Uses</td>
+                <td data-label="Description">Food preservative (vinegar), dyeing</td>
+              </tr>
+              <tr>
+                <td data-label="Property">Reaction with Base</td>
+                <td data-label="Description"><code>CH₃COOH + NaOH → CH₃COONa + H₂O</code> (neutralization)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Soaps and Detergents -->
+    <section class="unit-section" id="soaps-detergents">
+      <h2><span class="icon">🔹</span>7. Soaps and Detergents</h2>
+      <div class="unit-list">
+        <!-- Soaps -->
+        <li>
+          🧼 <strong>Soaps</strong><br>
+          Made by saponification: reaction of fat/oil + NaOH/KOH.<br>
+          Biodegradable.<br>
+          Work in soft water, but not in hard water (forms scum).
+        </li>
+        <!-- Detergents -->
+        <li style="margin-top: var(--gap-medium);">
+          🧴 <strong>Detergents</strong><br>
+          Made from petroleum products + sulfuric acid.<br>
+          Non-biodegradable (some).<br>
+          Work in hard and soft water.
+        </li>
+      </div>
+      <table style="margin-top: var(--gap-medium);">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Soaps</th>
+            <th>Detergents</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Feature">Source</td>
+            <td data-label="Soaps">Natural fats/oils</td>
+            <td data-label="Detergents">Synthetic chemicals</td>
+          </tr>
+          <tr>
+            <td data-label="Feature">Water type</td>
+            <td data-label="Soaps">Soft water only</td>
+            <td data-label="Detergents">Hard and soft water</td>
+          </tr>
+          <tr>
+            <td data-label="Feature">Biodegradable</td>
+            <td data-label="Soaps">Yes</td>
+            <td data-label="Detergents">Some are not</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Key Concepts to Master -->
+    <section class="unit-section" id="key-concepts">
+      <h2><span class="icon">🎯</span>Key Concepts to Master</h2>
+      <ul class="unit-list">
+        <li>Understand tetravalency and bonding of carbon.</li>
+        <li>Draw and recognize chain, branched, and ring structures.</li>
+        <li>Identify functional groups and homologous series.</li>
+        <li>Differentiate between structural isomers.</li>
+        <li>Learn physical/chemical properties of ethanol and acetic acid.</li>
+        <li>Distinguish between soaps and detergents.</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

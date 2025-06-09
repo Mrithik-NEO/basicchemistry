@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<div class="back-button-container">
+  <a href="index.html" class="back-button">← Back to Home</a>
+</div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unit 5: Periodic Classification of Elements</title>
+  <style>
+    /* CSS Variables for Theming */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #34495e;
+      --accent-color: #d35400;
+      --light-bg: #f4f6f8;
+      --dark-text: #2c3e50;
+      --table-header-bg: #34495e;
+      --table-header-text: #ecf0f1;
+      --table-row-odd: #ffffff;
+      --table-row-even: #ecf0f1;
+      --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --body-font: 'Arial', sans-serif;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition-speed: 0.3s;
+      --gap-large: 30px;
+      --gap-medium: 20px;
+      --gap-small: 10px;
+    }
+
+    /* Global Reset & Basics */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: var(--body-font);
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      padding: 20px;
+    }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    a:hover {
+      color: darken(var(--accent-color), 10%);
+    }
+
+    /* Main Container */
+    .container {
+      display: grid;
+      gap: var(--gap-large);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: var(--gap-large);
+    }
+    header h1 {
+      font-family: var(--heading-font);
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+    }
+    header h1::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 4px;
+      background-color: var(--accent-color);
+      margin: 8px auto 0;
+      border-radius: 2px;
+    }
+    header p {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      margin-top: var(--gap-small);
+    }
+
+    /* Section Styling */
+    .unit-section {
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: var(--gap-large) var(--gap-medium);
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    .unit-section h2 {
+      font-family: var(--heading-font);
+      font-size: 1.75rem;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--gap-medium);
+    }
+    .unit-section h2 .icon {
+      font-size: 1.5rem;
+      margin-right: var(--gap-small);
+      color: var(--accent-color);
+    }
+    .unit-section h2::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background-color: var(--secondary-color);
+      margin-left: var(--gap-small);
+      border-radius: 2px;
+    }
+
+    /* Two-Column Grid for Subsections */
+    .section-grid-2 {
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    @media (min-width: 768px) {
+      .section-grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* Four-Item Grid for Trends */
+    .trend-grid {
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    @media (min-width: 768px) {
+      .trend-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* Bullet List Styles */
+    .unit-list {
+      list-style: none;
+      margin-left: var(--gap-medium);
+    }
+    .unit-list li {
+      position: relative;
+      padding-left: 1.5em;
+      margin-bottom: var(--gap-small);
+      font-size: 1rem;
+    }
+    .unit-list li::before {
+      content: '🔹';
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.1rem;
+      color: var(--accent-color);
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: var(--gap-medium);
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+    thead {
+      background-color: var(--table-header-bg);
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+    th {
+      color: var(--table-header-text);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: var(--table-row-odd);
+    }
+    tbody tr:nth-child(even) {
+      background-color: var(--table-row-even);
+    }
+    tbody tr:hover {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      transition: background-color var(--transition-speed);
+    }
+
+    /* Responsive Table Adjustments */
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      tr {
+        border: 1px solid var(--secondary-color);
+        margin-bottom: var(--gap-medium);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+      td {
+        position: relative;
+        padding-left: 50%;
+        border: none;
+        border-bottom: 1px solid var(--secondary-color);
+      }
+      td::before {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+      }
+      td:nth-of-type(1)::before { content: attr(data-label); }
+      td:nth-of-type(2)::before { content: attr(data-label); }
+      td:nth-of-type(3)::before { content: attr(data-label); }
+      td:nth-of-type(4)::before { content: attr(data-label); }
+      td:nth-of-type(5)::before { content: attr(data-label); }
+    }
+
+    /* Code Styling */
+    code {
+      background-color: #eef3f8;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>Unit 5 – Periodic Classification of Elements</h1>
+      <p>JEE Foundation: Periodic Table Concepts & Trends</p>
+    </header>
+
+    <!-- 1. Mendeleev’s Periodic Table (Historical) -->
+    <section class="unit-section" id="mendeleev-table">
+      <h2><span class="icon">🔹</span>1. Mendeleev’s Periodic Table (Historical)</h2>
+      <div class="section-grid-2">
+        <!-- Left Column: Key Features & Advantages -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            🧠 Key Features
+          </h3>
+          <ul class="unit-list">
+            <li>Formulated by Dmitri Mendeleev in 1869</li>
+            <li>Arranged elements in order of increasing atomic mass</li>
+            <li>Placed elements with similar properties in the same column (group)</li>
+          </ul>
+
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin: var(--gap-medium) 0 var(--gap-small);">
+            🧪 Advantages
+          </h3>
+          <ul class="unit-list">
+            <li>Left gaps for undiscovered elements (e.g., Eka-silicon → Germanium)</li>
+            <li>Predicted properties of unknown elements accurately</li>
+            <li>Brought together elements with similar properties</li>
+          </ul>
+        </div>
+
+        <!-- Right Column: Limitations -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            ❌ Limitations
+          </h3>
+          <ul class="unit-list">
+            <li>Some elements placed in wrong order based on atomic mass</li>
+            <li>No place for isotopes</li>
+            <li>Couldn’t explain periodicity in terms of atomic structure</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Modern Periodic Table -->
+    <section class="unit-section" id="modern-periodic">
+      <h2><span class="icon">🔹</span>2. Modern Periodic Table</h2>
+      <div class="section-grid-2">
+        <!-- Left Column: Development & Arrangement -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            🧠 Developed by Henry Moseley (1913)
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Elements arranged by increasing atomic number (Z), correcting anomalies in Mendeleev’s table.<br>
+            Periodic repetition of properties every 8th element is explained by electronic configuration.
+          </p>
+        </div>
+
+        <!-- Right Column: Structure of Modern Table -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            📘 Structure of the Modern Periodic Table
+          </h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Feature">Periods</td>
+                <td data-label="Description">Horizontal rows (7 total)</td>
+              </tr>
+              <tr>
+                <td data-label="Feature">Groups</td>
+                <td data-label="Description">Vertical columns (18 total)</td>
+              </tr>
+              <tr>
+                <td data-label="Feature">Blocks</td>
+                <td data-label="Description">s-block (Groups 1–2), p-block (Groups 13–18), d-block (3–12), f-block (lanthanides & actinides)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Groups and Periods -->
+    <section class="unit-section" id="groups-periods">
+      <h2><span class="icon">🔹</span>3. Groups and Periods</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Term</th>
+            <th>Meaning</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Term">Group</td>
+            <td data-label="Meaning">Vertical column; elements have same valence electrons & similar properties</td>
+            <td data-label="Example">Group 1: Li, Na, K…</td>
+          </tr>
+          <tr>
+            <td data-label="Term">Period</td>
+            <td data-label="Meaning">Horizontal row; elements show a gradation in properties across</td>
+            <td data-label="Example">Period 2: Li, Be, B, C, N, O, F, Ne</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 4. Periodic Trends -->
+    <section class="unit-section" id="periodic-trends">
+      <h2><span class="icon">🔹</span>4. Periodic Trends</h2>
+      <div class="trend-grid">
+        <!-- A. Atomic Radius -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            📏 A. Atomic Radius
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Distance from nucleus to outermost shell.
+          </p>
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+            <li>Across a period: Decreases (↑ nuclear charge pulls electrons closer)</li>
+            <li>Down a group: Increases (new shells added)</li>
+          </ul>
+          <table>
+            <thead>
+              <tr>
+                <th>Trend</th>
+                <th>Explanation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Trend">⬅️ Period</td>
+                <td data-label="Explanation">↓ Radius</td>
+              </tr>
+              <tr>
+                <td data-label="Trend">⬇️ Group</td>
+                <td data-label="Explanation">↑ Radius</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- B. Ionization Energy -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            ⚡ B. Ionization Energy (IE)
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Energy required to remove one electron from a gaseous atom.
+          </p>
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+            <li>Across a period: Increases (↑ nuclear attraction, electrons held tightly)</li>
+            <li>Down a group: Decreases (outer electrons farther from nucleus)</li>
+          </ul>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            🧪 Noble gases have highest IE; Alkali metals have lowest.
+          </p>
+        </div>
+
+        <!-- C. Electronegativity -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            💡 C. Electronegativity
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Tendency of an atom to attract shared electrons in a bond.
+          </p>
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+            <li>Across a period: Increases (non-metals attract electrons more)</li>
+            <li>Down a group: Decreases (shielding increases, less pull)</li>
+          </ul>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Highest: Fluorine (F) | Lowest: Cesium (Cs)
+          </p>
+        </div>
+
+        <!-- D. Metallic & Non-Metallic Character -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            🔥 D. Metallic & Non-Metallic Character
+          </h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Character</th>
+                <th>Description</th>
+                <th>Trend</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Character">Metallic</td>
+                <td data-label="Description">Tendency to lose electrons</td>
+                <td data-label="Trend">↑ down a group, ↓ across a period</td>
+              </tr>
+              <tr>
+                <td data-label="Character">Non-Metallic</td>
+                <td data-label="Description">Tendency to gain electrons</td>
+                <td data-label="Trend">↓ down a group, ↑ across a period</td>
+              </tr>
+              <tr>
+                <td data-label="Character">Examples</td>
+                <td data-label="Description">Group 1: Highly metallic; Group 17: Highly non-metallic; Group 18: Noble gases (inert)</td>
+                <td data-label="Trend"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Concepts to Master -->
+    <section class="unit-section" id="key-concepts">
+      <h2><span class="icon">🎯</span>Key Concepts to Master</h2>
+      <ul class="unit-list">
+        <li>Compare Mendeleev’s vs Modern Periodic Table design & rationale.</li>
+        <li>Identify position of any element from its atomic number.</li>
+        <li>Predict chemical properties based on group and period.</li>
+        <li>Explain trends in atomic radius, ionization energy, electronegativity.</li>
+        <li>Understand metallic vs non-metallic nature through periodic position.</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

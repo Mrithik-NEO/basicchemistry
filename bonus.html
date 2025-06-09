@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<div class="back-button-container">
+  <a href="index.html" class="back-button">← Back to Home</a>
+</div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bonus Topics (Optional Enrichment)</title>
+  <style>
+    /* CSS Variables for Theming */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #34495e;
+      --accent-color: #27ae60;
+      --light-bg: #f4f6f8;
+      --dark-text: #2c3e50;
+      --table-header-bg: #34495e;
+      --table-header-text: #ecf0f1;
+      --table-row-odd: #ffffff;
+      --table-row-even: #ecf0f1;
+      --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --body-font: 'Arial', sans-serif;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition-speed: 0.3s;
+      --gap-large: 32px;
+      --gap-medium: 20px;
+      --gap-small: 12px;
+    }
+
+    /* Global Reset & Basics */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: var(--body-font);
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      padding: var(--gap-large);
+    }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    a:hover {
+      color: darken(var(--accent-color), 10%);
+    }
+
+    /* Main Container as Grid */
+    .container {
+      display: grid;
+      gap: var(--gap-large);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: var(--gap-large);
+    }
+    header h1 {
+      font-family: var(--heading-font);
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+    }
+    header h1::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 4px;
+      background-color: var(--accent-color);
+      margin: var(--gap-small) auto 0;
+      border-radius: 2px;
+    }
+    header p {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      margin-top: var(--gap-small);
+    }
+
+    /* Section Styling */
+    .unit-section {
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: var(--gap-large) var(--gap-medium);
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    .unit-section h2 {
+      font-family: var(--heading-font);
+      font-size: 1.75rem;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--gap-medium);
+    }
+    .unit-section h2 .icon {
+      font-size: 1.5rem;
+      margin-right: var(--gap-small);
+      color: var(--accent-color);
+    }
+    .unit-section h2::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background-color: var(--secondary-color);
+      margin-left: var(--gap-small);
+      border-radius: 2px;
+    }
+
+    /* Two-Column Grid for Subsections */
+    .section-grid-2 {
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    @media (min-width: 768px) {
+      .section-grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* Bullet List Styles */
+    .unit-list {
+      list-style: none;
+      margin-left: var(--gap-medium);
+    }
+    .unit-list li {
+      position: relative;
+      padding-left: 1.5em;
+      margin-bottom: var(--gap-small);
+      font-size: 1rem;
+    }
+    .unit-list li::before {
+      content: '🔹';
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.1rem;
+      color: var(--accent-color);
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: var(--gap-medium);
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+    thead {
+      background-color: var(--table-header-bg);
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+    th {
+      color: var(--table-header-text);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: var(--table-row-odd);
+    }
+    tbody tr:nth-child(even) {
+      background-color: var(--table-row-even);
+    }
+    tbody tr:hover {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      transition: background-color var(--transition-speed);
+    }
+
+    /* Responsive Table Adjustments */
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      tr {
+        border: 1px solid var(--secondary-color);
+        margin-bottom: var(--gap-medium);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+      td {
+        position: relative;
+        padding-left: 50%;
+        border: none;
+        border-bottom: 1px solid var(--secondary-color);
+      }
+      td::before {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+      }
+      td:nth-of-type(1)::before { content: attr(data-label); }
+      td:nth-of-type(2)::before { content: attr(data-label); }
+      td:nth-of-type(3)::before { content: attr(data-label); }
+      td:nth-of-type(4)::before { content: attr(data-label); }
+      td:nth-of-type(5)::before { content: attr(data-label); }
+    }
+
+    /* Code Styling */
+    code {
+      background-color: #eef3f8;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>Bonus Topics (Optional Enrichment)</h1>
+      <p>Advanced Enrichment: Purification, Electrolysis, Colloids, Nomenclature, and Industry Processes</p>
+    </header>
+
+    <!-- 1. Crystallization and Purification Techniques -->
+    <section class="unit-section" id="crystallization-purification">
+      <h2><span class="icon">🔹</span>1. Crystallization and Purification Techniques</h2>
+      <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+        📘 Crystallization
+      </h3>
+      <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em); margin-bottom: var(--gap-small);">
+        <li>Prepare a hot, saturated solution of the impure substance.</li>
+        <li>Filter to remove insoluble impurities.</li>
+        <li>Allow the solution to cool slowly → pure crystals form.</li>
+      </ul>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+        Used for purifying salts like copper sulfate, sugar, etc.
+      </p>
+      <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-top: var(--gap-medium); margin-bottom: var(--gap-small);">
+        📘 Other Purification Techniques
+      </h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Technique</th>
+            <th>Purpose</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Technique">Filtration</td>
+            <td data-label="Purpose">Separate insoluble solids from liquids</td>
+            <td data-label="Example">Sand from water</td>
+          </tr>
+          <tr>
+            <td data-label="Technique">Distillation</td>
+            <td data-label="Purpose">Separate liquids based on boiling points</td>
+            <td data-label="Example">Water from saltwater</td>
+          </tr>
+          <tr>
+            <td data-label="Technique">Sublimation</td>
+            <td data-label="Purpose">Purify substances that sublime</td>
+            <td data-label="Example">Camphor from impurities</td>
+          </tr>
+          <tr>
+            <td data-label="Technique">Centrifugation</td>
+            <td data-label="Purpose">Separate particles by spinning</td>
+            <td data-label="Example">Cream from milk</td>
+          </tr>
+          <tr>
+            <td data-label="Technique">Chromatography</td>
+            <td data-label="Purpose">Separate colored components</td>
+            <td data-label="Example">Pigments from ink</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 2. Electrolysis (Basic) -->
+    <section class="unit-section" id="electrolysis">
+      <h2><span class="icon">🔹</span>2. Electrolysis (Basic)</h2>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+        Electrolysis is the process of breaking down a compound using electricity.
+      </p>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem; margin-top: var(--gap-small);">
+        🧪 Example: Electrolysis of water:<br>
+        <code>2H₂O →<sub>Electricity</sub> 2H₂ + O₂</code>
+      </p>
+      <div class="section-grid-2" style="margin-top: var(--gap-medium);">
+        <!-- Setup -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            ⚙️ Setup
+          </h3>
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+            <li><strong>Electrolyte:</strong> Solution that conducts electricity.</li>
+            <li><strong>Cathode (–):</strong> Attracts cations (positive ions).</li>
+            <li><strong>Anode (+):</strong> Attracts anions (negative ions).</li>
+          </ul>
+        </div>
+        <!-- Uses -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            🧪 Uses
+          </h3>
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+            <li>Electroplating</li>
+            <li>Metal extraction (e.g., Al from bauxite)</li>
+            <li>Hydrogen fuel production</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Colloids and Suspensions -->
+    <section class="unit-section" id="colloids-suspensions">
+      <h2><span class="icon">🔹</span>3. Colloids and Suspensions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Colloids</th>
+            <th>Suspensions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Property">Particle size</td>
+            <td data-label="Colloids">Intermediate (1–1000 nm)</td>
+            <td data-label="Suspensions">Large (&gt;1000 nm)</td>
+          </tr>
+          <tr>
+            <td data-label="Property">Visibility</td>
+            <td data-label="Colloids">Not visible, but scatter light (Tyndall effect)</td>
+            <td data-label="Suspensions">Particles visible</td>
+          </tr>
+          <tr>
+            <td data-label="Property">Stability</td>
+            <td data-label="Colloids">Stable, do not settle</td>
+            <td data-label="Suspensions">Unstable, settle on standing</td>
+          </tr>
+          <tr>
+            <td data-label="Property">Examples</td>
+            <td data-label="Colloids">Milk, fog, blood</td>
+            <td data-label="Suspensions">Muddy water, chalk in water</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+        🌫️ <strong>Tyndall Effect:</strong> Scattering of light by colloidal particles helps distinguish colloids from true solutions.
+      </p>
+    </section>
+
+    <!-- 4. Nomenclature of Simple Organic Compounds -->
+    <section class="unit-section" id="organic-nomenclature">
+      <h2><span class="icon">🔹</span>4. Nomenclature of Simple Organic Compounds</h2>
+      <ul class="unit-list">
+        <li>Identify the longest carbon chain (parent chain).</li>
+        <li>Choose appropriate root word:
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+            <li><code>Meth</code> (1 C), <code>Eth</code> (2 C), <code>Prop</code> (3 C), <code>But</code> (4 C), etc.</li>
+          </ul>
+        </li>
+        <li>Number the chain (from nearest functional group/multiple bond).</li>
+        <li>Use prefixes for side groups or halogens.</li>
+        <li>Use suffixes for functional groups:
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+            <li><code>–ane</code> (alkane), <code>–ene</code> (alkene), <code>–yne</code> (alkyne), <code>–ol</code> (alcohol)</li>
+          </ul>
+        </li>
+      </ul>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem; margin-top: var(--gap-small);">
+        🧪 Examples:<br>
+        <code>CH₃–CH₂–OH</code> → Ethanol<br>
+        <code>CH₃–CH=CH₂</code> → Propene<br>
+        <code>CH₃–CH₂–COOH</code> → Propanoic acid
+      </p>
+    </section>
+
+    <!-- 5. Chemical Industry Processes -->
+    <section class="unit-section" id="industry-processes">
+      <h2><span class="icon">🔹</span>5. Chemical Industry Processes</h2>
+      <div class="unit-list">
+        <!-- A. Manufacture of Soap -->
+        <li>
+          🧼 <strong>A. Manufacture of Soap (Saponification)</strong><br>
+          Fat/oil + alkali (NaOH or KOH) → Soap + Glycerol<br>
+          <code>Fat + NaOH → Soap + Glycerol</code><br>
+          Soaps are sodium or potassium salts of fatty acids.
+        </li>
+        <!-- B. Manufacture of Cement -->
+        <li style="margin-top: var(--gap-medium);">
+          🧱 <strong>B. Manufacture of Cement</strong><br>
+          Made by heating limestone (CaCO₃), clay, and other materials in a rotary kiln:<br>
+          <code>CaCO₃ →<sub>heat</sub> CaO + CO₂</code><br>
+          Mixed with gypsum and ground to fine powder.<br>
+          Uses: Building material, roads, dams.
+        </li>
+        <!-- C. Manufacture of Ammonia -->
+        <li style="margin-top: var(--gap-medium);">
+          💨 <strong>C. Manufacture of Ammonia (Haber Process)</strong><br>
+          <code>N₂ + 3H₂ ↔ 2NH₃</code> (Fe catalyst, high pressure/temp)<br>
+          Conditions: 200 atm, 450–500°C, iron catalyst.<br>
+          Uses: Fertilizers (urea), explosives.
+        </li>
+        <!-- D. Manufacture of Glass -->
+        <li style="margin-top: var(--gap-medium);">
+          🔍 <strong>D. Manufacture of Glass</strong><br>
+          Main components: Sand (SiO₂), soda ash (Na₂CO₃), lime (CaO). Heated to melt and then cooled into shape.<br>
+          Uses: Windows, bottles, lenses.
+        </li>
+      </div>
+    </section>
+
+    <!-- Key Concepts to Master -->
+    <section class="unit-section" id="key-concepts">
+      <h2><span class="icon">🎯</span>Key Concepts to Master</h2>
+      <ul class="unit-list">
+        <li>Understand basic purification techniques like crystallization and filtration.</li>
+        <li>Learn simple electrolysis reactions and applications.</li>
+        <li>Differentiate between colloids and suspensions via Tyndall effect.</li>
+        <li>Practice organic compound naming rules (IUPAC nomenclature).</li>
+        <li>Know the basic processes in soap, ammonia, cement, and glass industries.</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<div class="back-button-container">
+  <a href="index.html" class="back-button">← Back to Home</a>
+</div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unit 3: Mole Concept and Stoichiometry</title>
+  <style>
+    /* CSS Variables for Theming */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #34495e;
+      --accent-color: #2980b9;
+      --light-bg: #f4f6f8;
+      --dark-text: #2c3e50;
+      --table-header-bg: #34495e;
+      --table-header-text: #ecf0f1;
+      --table-row-odd: #ffffff;
+      --table-row-even: #ecf0f1;
+      --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --body-font: 'Arial', sans-serif;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition-speed: 0.3s;
+    }
+
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: var(--body-font);
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      padding: 20px;
+    }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    a:hover {
+      color: darken(var(--accent-color), 10%);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 30px 40px;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    header h1 {
+      font-family: var(--heading-font);
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+      position: relative;
+      display: inline-block;
+    }
+    header h1::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 4px;
+      background-color: var(--accent-color);
+      margin: 8px auto 0;
+      border-radius: 2px;
+    }
+    header p {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      margin-top: 10px;
+    }
+
+    /* Section Titles */
+    .unit-section {
+      margin-bottom: 40px;
+    }
+    .unit-section h2 {
+      font-family: var(--heading-font);
+      font-size: 1.75rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+    .unit-section h2 .icon {
+      font-size: 1.5rem;
+      margin-right: 10px;
+      color: var(--accent-color);
+    }
+    .unit-section h2::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background-color: var(--secondary-color);
+      margin-left: 15px;
+      border-radius: 2px;
+    }
+
+    /* Bullet List Styles */
+    .unit-list {
+      margin-left: 1.5rem;
+      margin-bottom: 20px;
+      list-style: none;
+    }
+    .unit-list li {
+      position: relative;
+      padding-left: 1.5em;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+    .unit-list li::before {
+      content: '🔹';
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.1rem;
+      line-height: 1;
+      color: var(--accent-color);
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+    thead {
+      background-color: var(--table-header-bg);
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+    th {
+      color: var(--table-header-text);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: var(--table-row-odd);
+    }
+    tbody tr:nth-child(even) {
+      background-color: var(--table-row-even);
+    }
+    tbody tr:hover {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      transition: background-color var(--transition-speed);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      .unit-section h2 {
+        font-size: 1.5rem;
+      }
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      tr {
+        border: 1px solid var(--secondary-color);
+        margin-bottom: 10px;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+      td {
+        position: relative;
+        padding-left: 50%;
+        border: none;
+        border-bottom: 1px solid var(--secondary-color);
+      }
+      td::before {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+      }
+      /* Label each cell for mobile */
+      td:nth-of-type(1)::before { content: attr(data-label); }
+      td:nth-of-type(2)::before { content: attr(data-label); }
+      td:nth-of-type(3)::before { content: attr(data-label); }
+      td:nth-of-type(4)::before { content: attr(data-label); }
+      td:nth-of-type(5)::before { content: attr(data-label); }
+    }
+
+    /* Code Styling */
+    code {
+      background-color: #eef3f8;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    .formula {
+      font-size: 1rem;
+      display: block;
+      margin-top: 8px;
+      margin-left: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Unit 3 – Mole Concept and Stoichiometry</h1>
+      <p>Essential Concepts for JEE Foundation Chemistry</p>
+    </header>
+
+    <!-- 1. Mole and Molar Mass -->
+    <section class="unit-section" id="mole-molar-mass">
+      <h2><span class="icon">🔹</span>1. Mole and Molar Mass</h2>
+      <p style="margin-left: 1.5rem; font-size: 1rem;">
+        Mole (mol) is a unit to count particles (atoms, molecules, ions, etc.)<br />
+        <strong>1 mole = 6.022 × 10<sup>23</sup> particles</strong> (Avogadro’s number)
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Quantity</th>
+            <th>Equivalent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Quantity">1 mole of atoms</td>
+            <td data-label="Equivalent">6.022 × 10<sup>23</sup> atoms</td>
+          </tr>
+          <tr>
+            <td data-label="Quantity">1 mole of molecules</td>
+            <td data-label="Equivalent">6.022 × 10<sup>23</sup> molecules</td>
+          </tr>
+          <tr>
+            <td data-label="Quantity">1 mole of electrons</td>
+            <td data-label="Equivalent">6.022 × 10<sup>23</sup> electrons</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-left: 1.5rem; font-size: 1rem;">
+        <strong>Molar Mass:</strong> Mass of 1 mole of a substance in grams
+      </p>
+      <p class="formula">
+        Example: <code>H<sub>2</sub>O → 2(1) + 16 = 18 g/mol</code><br />
+        <code>CO<sub>2</sub> → 12 + 2(16) = 44 g/mol</code>
+      </p>
+    </section>
+
+    <!-- 2. Avogadro’s Number (Nᴀ) -->
+    <section class="unit-section" id="avogadro-number">
+      <h2><span class="icon">🔹</span>2. Avogadro’s Number (N<sub>A</sub>)</h2>
+      <p style="margin-left: 1.5rem; font-size: 1rem;">
+        <strong>N<sub>A</sub> = 6.022 × 10<sup>23</sup> particles/mol</strong><br />
+        Used to convert between:<br />
+      </p>
+      <ul class="unit-list">
+        <li>Number of particles ↔ Moles</li>
+        <li>Moles ↔ Mass</li>
+        <li>Volume (for gases) ↔ Moles (at STP)</li>
+      </ul>
+    </section>
+
+    <!-- 3. Empirical and Molecular Formulas -->
+    <section class="unit-section" id="empirical-molecular">
+      <h2><span class="icon">🔹</span>3. Empirical and Molecular Formulas</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Type">Empirical Formula</td>
+            <td data-label="Description">Simplest whole-number ratio of atoms</td>
+            <td data-label="Example">CH (for benzene)</td>
+          </tr>
+          <tr>
+            <td data-label="Type">Molecular Formula</td>
+            <td data-label="Description">Actual number of atoms in a molecule</td>
+            <td data-label="Example">C<sub>6</sub>H<sub>6</sub> (for benzene)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-left: 1.5rem; font-size: 1rem;">
+        🧠 Molecular Formula = (Empirical Formula) × n<br />
+        Where:<br />
+        <code>n = <strong>Molar mass of compound</strong> ÷ <strong>Empirical formula mass</strong></code>
+      </p>
+    </section>
+
+    <!-- 4. Law of Conservation of Mass -->
+    <section class="unit-section" id="conservation-mass">
+      <h2><span class="icon">🔹</span>4. Law of Conservation of Mass</h2>
+      <p style="margin-left: 1.5rem; font-size: 1rem;">
+        "Mass can neither be created nor destroyed in a chemical reaction."<br />
+        Total mass of reactants = Total mass of products<br />
+        Basis for balancing chemical equations
+      </p>
+    </section>
+
+    <!-- 5. Law of Constant Proportions -->
+    <section class="unit-section" id="constant-proportions">
+      <h2><span class="icon">🔹</span>5. Law of Constant Proportions</h2>
+      <p style="margin-left: 1.5rem; font-size: 1rem;">
+        "A given compound always contains the same elements in the same fixed ratio by mass."<br />
+        Example: Water (H<sub>2</sub>O) always has H:O = 2:16 = 1:8 by mass
+      </p>
+    </section>
+
+    <!-- 6. Balancing Chemical Equations -->
+    <section class="unit-section" id="balancing-equations">
+      <h2><span class="icon">🔹</span>6. Balancing Chemical Equations</h2>
+      <p style="margin-left: 1.5rem; font-size: 1rem;">
+        Ensures conservation of atoms and mass
+      </p>
+      <ul class="unit-list">
+        <li>Count atoms of each element on both sides</li>
+        <li>Adjust coefficients to match atom counts</li>
+        <li>Use the smallest whole numbers</li>
+      </ul>
+      <p style="margin-left: 1.5rem; font-size: 1rem;">
+        🧪 Example:<br />
+        Unbalanced: <code>H<sub>2</sub> + O<sub>2</sub> → H<sub>2</sub>O</code><br />
+        Balanced: <code>2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O</code>
+      </p>
+    </section>
+
+    <!-- 7. Basic Stoichiometric Calculations -->
+    <section class="unit-section" id="stoichiometry">
+      <h2><span class="icon">🔹</span>7. Basic Stoichiometric Calculations</h2>
+      <p style="margin-left: 1.5rem; font-size: 1rem;">
+        Use mole ratio from balanced equations to find:<br />
+      </p>
+      <ul class="unit-list">
+        <li>Mass of reactants/products</li>
+        <li>Volume of gases (at STP)</li>
+        <li>Number of particles</li>
+      </ul>
+      <p style="margin-left: 1.5rem; font-size: 1rem;">
+        <strong>STP conditions:</strong> T = 273 K, P = 1 atm, 1 mole of gas = 22.4 L
+      </p>
+      <p style="margin-left: 1.5rem; font-size: 1rem;">
+        🧠 Stoichiometry Steps:
+      </p>
+      <ol style="margin-left: 2rem; margin-bottom: 20px; font-size: 1rem;">
+        <li>Write and balance the chemical equation</li>
+        <li>Convert given quantity into moles</li>
+        <li>Use mole ratio to find moles of required substance</li>
+        <li>Convert moles back to mass, volume, or particles</li>
+      </ol>
+    </section>
+
+    <!-- Key Concepts to Master -->
+    <section class="unit-section" id="key-concepts">
+      <h2><span class="icon">🎯</span>Key Concepts to Master</h2>
+      <ul class="unit-list">
+        <li>Convert between mass ↔ mole ↔ number of particles</li>
+        <li>Determine empirical/molecular formula</li>
+        <li>Apply mole concept in stoichiometric calculations</li>
+        <li>Balance chemical equations accurately</li>
+        <li>Apply laws of chemical combination</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

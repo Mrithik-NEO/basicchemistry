@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<div class="back-button-container">
+  <a href="index.html" class="back-button">← Back to Home</a>
+</div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unit 6: Chemical Bonding</title>
+  <style>
+    /* CSS Variables for Theming */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #34495e;
+      --accent-color: #27ae60;
+      --light-bg: #f4f6f8;
+      --dark-text: #2c3e50;
+      --table-header-bg: #34495e;
+      --table-header-text: #ecf0f1;
+      --table-row-odd: #ffffff;
+      --table-row-even: #ecf0f1;
+      --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --body-font: 'Arial', sans-serif;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition-speed: 0.3s;
+      --gap-large: 30px;
+      --gap-medium: 20px;
+      --gap-small: 10px;
+    }
+
+    /* Global Reset & Basics */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: var(--body-font);
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      padding: 20px;
+    }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    a:hover {
+      color: darken(var(--accent-color), 10%);
+    }
+
+    /* Main Container */
+    .container {
+      display: grid;
+      gap: var(--gap-large);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: var(--gap-large);
+    }
+    header h1 {
+      font-family: var(--heading-font);
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+    }
+    header h1::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 4px;
+      background-color: var(--accent-color);
+      margin: 8px auto 0;
+      border-radius: 2px;
+    }
+    header p {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      margin-top: var(--gap-small);
+    }
+
+    /* Section Styling */
+    .unit-section {
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: var(--gap-large) var(--gap-medium);
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    .unit-section h2 {
+      font-family: var(--heading-font);
+      font-size: 1.75rem;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--gap-medium);
+    }
+    .unit-section h2 .icon {
+      font-size: 1.5rem;
+      margin-right: var(--gap-small);
+      color: var(--accent-color);
+    }
+    .unit-section h2::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background-color: var(--secondary-color);
+      margin-left: var(--gap-small);
+      border-radius: 2px;
+    }
+
+    /* Two-Column Grid for Subsections */
+    .section-grid-2 {
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    @media (min-width: 768px) {
+      .section-grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* Bullet List Styles */
+    .unit-list {
+      list-style: none;
+      margin-left: var(--gap-medium);
+    }
+    .unit-list li {
+      position: relative;
+      padding-left: 1.5em;
+      margin-bottom: var(--gap-small);
+      font-size: 1rem;
+    }
+    .unit-list li::before {
+      content: '🔹';
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.1rem;
+      color: var(--accent-color);
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: var(--gap-medium);
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+    thead {
+      background-color: var(--table-header-bg);
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+    th {
+      color: var(--table-header-text);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: var(--table-row-odd);
+    }
+    tbody tr:nth-child(even) {
+      background-color: var(--table-row-even);
+    }
+    tbody tr:hover {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      transition: background-color var(--transition-speed);
+    }
+
+    /* Responsive Table Adjustments */
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      tr {
+        border: 1px solid var(--secondary-color);
+        margin-bottom: var(--gap-medium);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+      td {
+        position: relative;
+        padding-left: 50%;
+        border: none;
+        border-bottom: 1px solid var(--secondary-color);
+      }
+      td::before {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+      }
+      td:nth-of-type(1)::before { content: attr(data-label); }
+      td:nth-of-type(2)::before { content: attr(data-label); }
+      td:nth-of-type(3)::before { content: attr(data-label); }
+      td:nth-of-type(4)::before { content: attr(data-label); }
+    }
+
+    /* Code Styling */
+    code {
+      background-color: #eef3f8;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>Unit 6 – Chemical Bonding</h1>
+      <p>JEE Foundation: Bonding Concepts & Properties</p>
+    </header>
+
+    <!-- 1. Why Do Atoms Form Bonds? -->
+    <section class="unit-section" id="bond-why">
+      <h2><span class="icon">🔹</span>1. Why Do Atoms Form Bonds?</h2>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+        Atoms form chemical bonds to attain stability by achieving a noble gas configuration (usually 8 electrons in the outer shell – Octet Rule).
+      </p>
+    </section>
+
+    <!-- 2. Types of Chemical Bonds -->
+    <section class="unit-section" id="bond-types">
+      <h2><span class="icon">🔹</span>2. Types of Chemical Bonds</h2>
+      <div class="section-grid-2">
+        <!-- Ionic Bond -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            🌟 A. Ionic Bond (Electrovalent Bond)
+          </h3>
+          <ul class="unit-list">
+            <li>Formed by transfer of electrons from one atom to another</li>
+            <li>Occurs between metals (lose electrons) and non-metals (gain electrons)</li>
+            <li>Results in positive (cation) and negative (anion) ions</li>
+          </ul>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            🧪 Example: NaCl<br>
+            Na (1 valence electron) → loses 1e⁻ → Na⁺<br>
+            Cl (7 valence electrons) → gains 1e⁻ → Cl⁻<br>
+            Result: Na⁺ + Cl⁻ → NaCl (ionic bond)
+          </p>
+        </div>
+        <!-- Covalent Bond -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            🌟 B. Covalent Bond
+          </h3>
+          <ul class="unit-list">
+            <li>Formed by sharing of electron pairs between atoms</li>
+            <li>Occurs between non-metal + non-metal</li>
+            <li>Atoms contribute one or more electrons to form a shared pair</li>
+          </ul>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            🧪 Example:<br>
+            H₂ → H· + ·H → H:H<br>
+            O₂ → O::O<br>
+            CH₄ → Carbon shares electrons with 4 H atoms
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Lewis Dot Structures -->
+    <section class="unit-section" id="lewis-structures">
+      <h2><span class="icon">🔹</span>3. Lewis Dot Structures</h2>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+        Diagrams showing valence electrons as dots around element symbols.<br>
+        Used to visualize bond formation and shared/unshared electrons.
+      </p>
+      <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+        <li>Hydrogen (H): <code>•H</code></li>
+        <li>Oxygen (O): <code>••O••</code></li>
+        <li>Water (H₂O): <code>H:O:H</code></li>
+      </ul>
+    </section>
+
+    <!-- 4. Bond Properties -->
+    <section class="unit-section" id="bond-properties">
+      <h2><span class="icon">🔹</span>4. Bond Properties</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Ionic Bond</th>
+            <th>Covalent Bond</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Property">Melting/Boiling Point</td>
+            <td data-label="Ionic Bond">High (strong electrostatic forces)</td>
+            <td data-label="Covalent Bond">Low to moderate</td>
+          </tr>
+          <tr>
+            <td data-label="Property">Solubility</td>
+            <td data-label="Ionic Bond">Soluble in water</td>
+            <td data-label="Covalent Bond">Soluble in organic solvents</td>
+          </tr>
+          <tr>
+            <td data-label="Property">Electrical Conductivity</td>
+            <td data-label="Ionic Bond">Conducts in molten/solution state</td>
+            <td data-label="Covalent Bond">Poor conductor (no free ions)</td>
+          </tr>
+          <tr>
+            <td data-label="Property">Nature</td>
+            <td data-label="Ionic Bond">Hard, crystalline</td>
+            <td data-label="Covalent Bond">Soft, gases/liquids/soft solids</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 5. Electronegativity and Bond Polarity -->
+    <section class="unit-section" id="bond-polarity">
+      <h2><span class="icon">🔹</span>5. Electronegativity and Bond Polarity</h2>
+      <div class="section-grid-2">
+        <!-- Electronegativity Definition -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            ⚛️ Electronegativity
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Tendency of an atom to attract shared electrons in a bond.<br>
+            Difference in electronegativity between atoms leads to bond polarity.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Difference in EN</th>
+                <th>Type of Bond</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Difference in EN">0</td>
+                <td data-label="Type of Bond">Non-polar covalent</td>
+              </tr>
+              <tr>
+                <td data-label="Difference in EN">Small (0–1.7)</td>
+                <td data-label="Type of Bond">Polar covalent</td>
+              </tr>
+              <tr>
+                <td data-label="Difference in EN">High (>1.7)</td>
+                <td data-label="Type of Bond">Ionic</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            🧪 Example: H–Cl → Polar covalent (Cl is more electronegative, pulls electrons closer)
+          </p>
+        </div>
+        <!-- Dipole Moment -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            💡 Dipole Moment
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Indicates polarity of a molecule.<br>
+            Arrow shows direction of electron pull: H → Cl (δ⁺–H and δ⁻–Cl).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Molecules vs Ions -->
+    <section class="unit-section" id="molecules-ions">
+      <h2><span class="icon">🔹</span>6. Molecules vs Ions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Molecule</th>
+            <th>Ion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Property">Composition</td>
+            <td data-label="Molecule">Neutral group of atoms</td>
+            <td data-label="Ion">Atom or group with net charge</td>
+          </tr>
+          <tr>
+            <td data-label="Property">Charge</td>
+            <td data-label="Molecule">No charge</td>
+            <td data-label="Ion">Positive (cation) or negative (anion)</td>
+          </tr>
+          <tr>
+            <td data-label="Property">Example</td>
+            <td data-label="Molecule">H₂O, CO₂</td>
+            <td data-label="Ion">Na⁺, Cl⁻, SO₄²⁻</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Key Concepts to Master -->
+    <section class="unit-section" id="key-concepts">
+      <h2><span class="icon">🎯</span>Key Concepts to Master</h2>
+      <ul class="unit-list">
+        <li>Differentiate between ionic and covalent bonds.</li>
+        <li>Draw Lewis dot structures correctly.</li>
+        <li>Predict bond polarity using electronegativity differences.</li>
+        <li>Understand melting point, solubility, and conductivity for different bonds.</li>
+        <li>Distinguish between molecules and ions based on structure and charge.</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

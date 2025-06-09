@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<div class="back-button-container">
+  <a href="index.html" class="back-button">← Back to Home</a>
+</div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unit 15: Basic Organic Chemistry (Intro)</title>
+  <style>
+    /* CSS Variables for Theming */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #34495e;
+      --accent-color: #8e44ad;
+      --light-bg: #f4f6f8;
+      --dark-text: #2c3e50;
+      --table-header-bg: #34495e;
+      --table-header-text: #ecf0f1;
+      --table-row-odd: #ffffff;
+      --table-row-even: #ecf0f1;
+      --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --body-font: 'Arial', sans-serif;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition-speed: 0.3s;
+      --gap-large: 32px;
+      --gap-medium: 20px;
+      --gap-small: 12px;
+    }
+
+    /* Global Reset & Basics */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: var(--body-font);
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      padding: var(--gap-large);
+    }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    a:hover {
+      color: darken(var(--accent-color), 10%);
+    }
+
+    /* Main Container as Grid */
+    .container {
+      display: grid;
+      gap: var(--gap-large);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: var(--gap-large);
+    }
+    header h1 {
+      font-family: var(--heading-font);
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+    }
+    header h1::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 4px;
+      background-color: var(--accent-color);
+      margin: var(--gap-small) auto 0;
+      border-radius: 2px;
+    }
+    header p {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      margin-top: var(--gap-small);
+    }
+
+    /* Section Styling */
+    .unit-section {
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: var(--gap-large) var(--gap-medium);
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    .unit-section h2 {
+      font-family: var(--heading-font);
+      font-size: 1.75rem;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--gap-medium);
+    }
+    .unit-section h2 .icon {
+      font-size: 1.5rem;
+      margin-right: var(--gap-small);
+      color: var(--accent-color);
+    }
+    .unit-section h2::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background-color: var(--secondary-color);
+      margin-left: var(--gap-small);
+      border-radius: 2px;
+    }
+
+    /* Two-Column Grid for Subsections */
+    .section-grid-2 {
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    @media (min-width: 768px) {
+      .section-grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* Bullet List Styles */
+    .unit-list {
+      list-style: none;
+      margin-left: var(--gap-medium);
+    }
+    .unit-list li {
+      position: relative;
+      padding-left: 1.5em;
+      margin-bottom: var(--gap-small);
+      font-size: 1rem;
+    }
+    .unit-list li::before {
+      content: '🔹';
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.1rem;
+      color: var(--accent-color);
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: var(--gap-medium);
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+    thead {
+      background-color: var(--table-header-bg);
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+    th {
+      color: var(--table-header-text);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: var(--table-row-odd);
+    }
+    tbody tr:nth-child(even) {
+      background-color: var(--table-row-even);
+    }
+    tbody tr:hover {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      transition: background-color var(--transition-speed);
+    }
+
+    /* Responsive Table Adjustments */
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      tr {
+        border: 1px solid var(--secondary-color);
+        margin-bottom: var(--gap-medium);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+      td {
+        position: relative;
+        padding-left: 50%;
+        border: none;
+        border-bottom: 1px solid var(--secondary-color);
+      }
+      td::before {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+      }
+      td:nth-of-type(1)::before { content: attr(data-label); }
+      td:nth-of-type(2)::before { content: attr(data-label); }
+      td:nth-of-type(3)::before { content: attr(data-label); }
+      td:nth-of-type(4)::before { content: attr(data-label); }
+    }
+
+    /* Code Styling */
+    code {
+      background-color: #eef3f8;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>Unit 15 – Basic Organic Chemistry (Intro)</h1>
+      <p>JEE Foundation: Hydrocarbons, Nomenclature, Combustion, Polymers, and Plastics</p>
+    </header>
+
+    <!-- 1. Hydrocarbons: Introduction -->
+    <section class="unit-section" id="hydrocarbons-intro">
+      <h2><span class="icon">🔹</span>1. Hydrocarbons: Introduction</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Bonds Present</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Type">Alkanes</td>
+            <td data-label="Bonds Present">Only single bonds (C–C)</td>
+            <td data-label="Example">Methane (<code>CH₄</code>)</td>
+          </tr>
+          <tr>
+            <td data-label="Type">Alkenes</td>
+            <td data-label="Bonds Present">At least one double bond (C=C)</td>
+            <td data-label="Example">Ethene (<code>C₂H₄</code>)</td>
+          </tr>
+          <tr>
+            <td data-label="Type">Alkynes</td>
+            <td data-label="Bonds Present">At least one triple bond (C≡C)</td>
+            <td data-label="Example">Ethyne (<code>C₂H₂</code>)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 2. General Formulas -->
+    <section class="unit-section" id="general-formulas">
+      <h2><span class="icon">🔹</span>2. General Formulas</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Hydrocarbon Type</th>
+            <th>General Formula</th>
+            <th>Example (n=2)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Hydrocarbon Type">Alkanes</td>
+            <td data-label="General Formula"><code>CₙH₂ₙ₊₂</code></td>
+            <td data-label="Example (n=2)"><code>C₂H₆</code> (Ethane)</td>
+          </tr>
+          <tr>
+            <td data-label="Hydrocarbon Type">Alkenes</td>
+            <td data-label="General Formula"><code>CₙH₂ₙ</code></td>
+            <td data-label="Example (n=2)"><code>C₂H₄</code> (Ethene)</td>
+          </tr>
+          <tr>
+            <td data-label="Hydrocarbon Type">Alkynes</td>
+            <td data-label="General Formula"><code>CₙH₂ₙ₋₂</code></td>
+            <td data-label="Example (n=2)"><code>C₂H₂</code> (Ethyne)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. Basic Nomenclature (IUPAC Naming) -->
+    <section class="unit-section" id="nomenclature">
+      <h2><span class="icon">🔹</span>3. Basic Nomenclature (IUPAC Naming)</h2>
+      <ul class="unit-list">
+        <li>Identify the longest carbon chain.</li>
+        <li>Use the root word based on number of C atoms:
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+            <li><code>Meth–</code> (1 C), <code>Eth–</code> (2 C), <code>Prop–</code> (3 C), <code>But–</code> (4 C), <code>Pent–</code> (5 C), etc.</li>
+          </ul>
+        </li>
+        <li>Add suffix based on bond type:
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+            <li><code>–ane</code> (alkane), <code>–ene</code> (alkene), <code>–yne</code> (alkyne)</li>
+          </ul>
+        </li>
+        <li>Number the chain to give the lowest number to multiple bonds.</li>
+      </ul>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem; margin-top: var(--gap-small);">
+        🧪 Examples:<br>
+        <code>CH₄</code> → Methane<br>
+        <code>CH₃–CH₃</code> → Ethane<br>
+        <code>CH₂=CH₂</code> → Ethene<br>
+        <code>CH≡CH</code> → Ethyne
+      </p>
+    </section>
+
+    <!-- 4. Combustion Reactions of Organic Compounds -->
+    <section class="unit-section" id="combustion-reactions">
+      <h2><span class="icon">🔹</span>4. Combustion Reactions of Organic Compounds</h2>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+        Organic compounds burn in oxygen to produce carbon dioxide and water, releasing energy (exothermic reaction).
+      </p>
+      <ul class="unit-list">
+        <li>
+          <strong>Complete Combustion</strong> (with enough oxygen):<br>
+          <code>CH₄ + 2O₂ → CO₂ + 2H₂O + Heat</code>
+        </li>
+        <li style="margin-top: var(--gap-medium);">
+          <strong>Incomplete Combustion</strong> (limited oxygen):<br>
+          <code>CH₄ + O₂ → CO + 2H₂O + less heat</code><br>
+          Incomplete combustion forms carbon monoxide (CO), which is poisonous.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 5. Introduction to Polymers and Plastics -->
+    <section class="unit-section" id="polymers-plastics">
+      <h2><span class="icon">🔹</span>5. Introduction to Polymers and Plastics</h2>
+      <div class="section-grid-2">
+        <!-- Polymers -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            🔸 Polymers
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Large molecules made by repeating units (monomers). Reaction: Polymerization.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Term</th>
+                <th>Meaning</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Term">Monomer</td>
+                <td data-label="Meaning">Single unit molecule</td>
+                <td data-label="Example">Ethene (<code>C₂H₄</code>)</td>
+              </tr>
+              <tr>
+                <td data-label="Term">Polymer</td>
+                <td data-label="Meaning">Long chain of monomers</td>
+                <td data-label="Example"><code>Polyethene (–CH₂–CH₂–)ₙ</code></td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem; margin-top: var(--gap-small);">
+            <strong>Types of Polymers:</strong><br>
+            <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+              <li>Natural: Rubber, proteins, starch</li>
+              <li>Synthetic: Plastic, nylon, PVC</li>
+            </ul>
+          </p>
+        </div>
+        <!-- Plastics -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            🔸 Plastics
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Common synthetic polymers. Non-biodegradable → cause environmental pollution if not recycled.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Plastic Type</th>
+                <th>Monomer</th>
+                <th>Use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Plastic Type">Polyethene</td>
+                <td data-label="Monomer">Ethene</td>
+                <td data-label="Use">Carry bags, containers</td>
+              </tr>
+              <tr>
+                <td data-label="Plastic Type">PVC</td>
+                <td data-label="Monomer">Vinyl chloride</td>
+                <td data-label="Use">Pipes, wires</td>
+              </tr>
+              <tr>
+                <td data-label="Plastic Type">Teflon</td>
+                <td data-label="Monomer">Tetrafluoroethene</td>
+                <td data-label="Use">Non-stick cookware</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Concepts to Master -->
+    <section class="unit-section" id="key-concepts">
+      <h2><span class="icon">🎯</span>Key Concepts to Master</h2>
+      <ul class="unit-list">
+        <li>Understand classification and structure of alkanes, alkenes, and alkynes.</li>
+        <li>Apply IUPAC rules for naming hydrocarbons.</li>
+        <li>Write and balance combustion reactions (complete vs. incomplete).</li>
+        <li>Grasp basics of polymers and plastics, including examples and uses.</li>
+        <li>Realize environmental impacts of plastic waste and importance of recycling.</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

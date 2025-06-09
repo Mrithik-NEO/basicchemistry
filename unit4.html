@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<div class="back-button-container">
+  <a href="index.html" class="back-button">← Back to Home</a>
+</div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unit 4: Structure of Atom (Advanced Foundation)</title>
+  <style>
+    /* CSS Variables for Theming */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #34495e;
+      --accent-color: #8e44ad;
+      --light-bg: #f4f6f8;
+      --dark-text: #2c3e50;
+      --table-header-bg: #34495e;
+      --table-header-text: #ecf0f1;
+      --table-row-odd: #ffffff;
+      --table-row-even: #ecf0f1;
+      --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --body-font: 'Arial', sans-serif;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition-speed: 0.3s;
+      --gap-large: 30px;
+      --gap-medium: 20px;
+      --gap-small: 10px;
+    }
+
+    /* Global Reset & Basics */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: var(--body-font);
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      padding: 20px;
+    }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    a:hover {
+      color: darken(var(--accent-color), 10%);
+    }
+
+    /* Main Container */
+    .container {
+      display: grid;
+      gap: var(--gap-large);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: var(--gap-large);
+    }
+    header h1 {
+      font-family: var(--heading-font);
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+    }
+    header h1::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 4px;
+      background-color: var(--accent-color);
+      margin: 8px auto 0;
+      border-radius: 2px;
+    }
+    header p {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      margin-top: var(--gap-small);
+    }
+
+    /* Section Container */
+    .unit-section {
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: var(--gap-large) var(--gap-medium);
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    .unit-section h2 {
+      font-family: var(--heading-font);
+      font-size: 1.75rem;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--gap-medium);
+    }
+    .unit-section h2 .icon {
+      font-size: 1.5rem;
+      margin-right: var(--gap-small);
+      color: var(--accent-color);
+    }
+    .unit-section h2::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background-color: var(--secondary-color);
+      margin-left: var(--gap-small);
+      border-radius: 2px;
+    }
+
+    /* Two-Column Grid for Subsections */
+    .section-grid-2 {
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    @media (min-width: 768px) {
+      .section-grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* Bullet List Styles */
+    .unit-list {
+      list-style: none;
+      margin-left: var(--gap-medium);
+    }
+    .unit-list li {
+      position: relative;
+      padding-left: 1.5em;
+      margin-bottom: var(--gap-small);
+      font-size: 1rem;
+    }
+    .unit-list li::before {
+      content: '🔹';
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.1rem;
+      color: var(--accent-color);
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: var(--gap-medium);
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+    thead {
+      background-color: var(--table-header-bg);
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+    th {
+      color: var(--table-header-text);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: var(--table-row-odd);
+    }
+    tbody tr:nth-child(even) {
+      background-color: var(--table-row-even);
+    }
+    tbody tr:hover {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      transition: background-color var(--transition-speed);
+    }
+
+    /* Code Styling */
+    code {
+      background-color: #eef3f8;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    .formula {
+      margin-top: var(--gap-small);
+      margin-left: var(--gap-medium);
+      font-size: 1rem;
+      display: block;
+    }
+
+    /* Responsive Adjustments for Tables */
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      tr {
+        border: 1px solid var(--secondary-color);
+        margin-bottom: var(--gap-medium);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+      td {
+        position: relative;
+        padding-left: 50%;
+        border: none;
+        border-bottom: 1px solid var(--secondary-color);
+      }
+      td::before {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+      }
+      td:nth-of-type(1)::before { content: attr(data-label); }
+      td:nth-of-type(2)::before { content: attr(data-label); }
+      td:nth-of-type(3)::before { content: attr(data-label); }
+      td:nth-of-type(4)::before { content: attr(data-label); }
+      td:nth-of-type(5)::before { content: attr(data-label); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>Unit 4 – Structure of Atom (Advanced Foundation)</h1>
+      <p>Deep Dive into Electron Distribution & Quantum Principles</p>
+    </header>
+
+    <!-- 1. Electronic Configuration -->
+    <section class="unit-section" id="electronic-configuration">
+      <h2><span class="icon">🔹</span>1. Electronic Configuration</h2>
+      <div class="section-grid-2">
+        <!-- Left Column: Principles -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            📘 Aufbau Principle
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Electrons fill orbitals starting from the lowest energy level first.<br>
+            Order of filling is determined by the (n + l) rule:
+          </p>
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+            <li>Lower (n + l) → lower energy</li>
+            <li>If (n + l) is the same, orbital with lower n fills first</li>
+          </ul>
+
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin: var(--gap-medium) 0 var(--gap-small);">
+            📘 Pauli Exclusion Principle
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            No two electrons in an atom can have the same set of 4 quantum numbers.<br>
+            Each orbital can hold a maximum of 2 electrons, and they must have opposite spins (↑↓).
+          </p>
+
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin: var(--gap-medium) 0 var(--gap-small);">
+            📘 Hund’s Rule of Maximum Multiplicity
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Electrons are filled singly in degenerate (same energy) orbitals before pairing.<br>
+            Electrons in singly occupied orbitals have parallel spins for maximum stability.
+          </p>
+
+          <p style="margin-left: var(--gap-medium); font-size: 1rem; margin-top: var(--gap-medium);">
+            🧠 <em>For example:</em><br>
+            In carbon (Z = 6): <code>1s² 2s² 2p²</code> → 2p orbitals fill as ↑ ↑ _ not ↑↓ _.
+          </p>
+        </div>
+
+        <!-- Right Column: Order of Filling -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            ⚛️ Order of Filling Orbitals
+          </h3>
+          <ol style="margin-left: calc(var(--gap-medium) + 0.5em); font-size: 1rem; list-style-position: inside; line-height: 1.5;">
+            <li>1s ⟶ 2s ⟶ 2p ⟶ 3s ⟶ 3p ⟶ 4s ⟶ 3d ⟶ 4p ⟶ 5s ⟶ 4d ⟶ 5p ⟶ 6s …</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Orbitals, Shells, and Subshells -->
+    <section class="unit-section" id="orbitals-shells-subshells">
+      <h2><span class="icon">🔹</span>2. Orbitals, Shells, and Subshells</h2>
+      <div class="section-grid-2">
+        <!-- Left Column: Definitions -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            ⚛️ Shells (n = 1, 2, 3…)
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Represented by K, L, M, N…<br>
+            Shell number = Principal quantum number (n).
+          </p>
+
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin: var(--gap-medium) 0 var(--gap-small);">
+            ⚛️ Subshells (s, p, d, f)
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Subshell ↔ Value of l ↔ Shape ↔ Number of orbitals ↔ Maximum electrons.
+          </p>
+
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin: var(--gap-medium) 0 var(--gap-small);">
+            ⚛️ Orbitals
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Region in space around the nucleus where the probability of finding an electron is maximum.<br>
+            Each orbital can hold 2 electrons (with opposite spins).
+          </p>
+        </div>
+
+        <!-- Right Column: Subshell Table -->
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Subshell</th>
+                <th>Value of l</th>
+                <th>Shape</th>
+                <th>Number of Orbitals</th>
+                <th>Max Electrons</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Subshell">s</td>
+                <td data-label="Value of l">0</td>
+                <td data-label="Shape">Spherical</td>
+                <td data-label="Number of Orbitals">1</td>
+                <td data-label="Max Electrons">2</td>
+              </tr>
+              <tr>
+                <td data-label="Subshell">p</td>
+                <td data-label="Value of l">1</td>
+                <td data-label="Shape">Dumbbell</td>
+                <td data-label="Number of Orbitals">3</td>
+                <td data-label="Max Electrons">6</td>
+              </tr>
+              <tr>
+                <td data-label="Subshell">d</td>
+                <td data-label="Value of l">2</td>
+                <td data-label="Shape">Double Dumbbell</td>
+                <td data-label="Number of Orbitals">5</td>
+                <td data-label="Max Electrons">10</td>
+              </tr>
+              <tr>
+                <td data-label="Subshell">f</td>
+                <td data-label="Value of l">3</td>
+                <td data-label="Shape">Complex</td>
+                <td data-label="Number of Orbitals">7</td>
+                <td data-label="Max Electrons">14</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Valency and Octet Rule -->
+    <section class="unit-section" id="valency-octet">
+      <h2><span class="icon">🔹</span>3. Valency and Octet Rule</h2>
+      <div class="section-grid-2">
+        <!-- Left Column: Text & Examples -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            ⭐ Valency
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            The combining capacity of an element.<br>
+            Related to number of electrons in the outermost shell (valence electrons).
+          </p>
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+            <li>Group 1 elements (e.g., Na) have 1 valence electron → Valency = 1</li>
+            <li>Group 17 elements (e.g., Cl) need 1 electron → Valency = 1</li>
+          </ul>
+
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin: var(--gap-medium) 0 var(--gap-small);">
+            ⭐ Octet Rule
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Atoms tend to gain, lose, or share electrons to achieve 8 electrons in their valence shell (like noble gases).
+          </p>
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+            <li>🧪 Na (1 valence electron) loses 1 → Na⁺</li>
+            <li>🧪 Cl (7 valence electrons) gains 1 → Cl⁻</li>
+            <li>Both attain octet configuration like Ne and Ar</li>
+          </ul>
+        </div>
+
+        <!-- Right Column: Electronic Configuration Examples -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            🎯 Examples of Electronic Configuration (by Aufbau)
+          </h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Element</th>
+                <th>Atomic No.</th>
+                <th>Configuration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Element">H</td>
+                <td data-label="Atomic No.">1</td>
+                <td data-label="Configuration">1s¹</td>
+              </tr>
+              <tr>
+                <td data-label="Element">He</td>
+                <td data-label="Atomic No.">2</td>
+                <td data-label="Configuration">1s²</td>
+              </tr>
+              <tr>
+                <td data-label="Element">Li</td>
+                <td data-label="Atomic No.">3</td>
+                <td data-label="Configuration">1s² 2s¹</td>
+              </tr>
+              <tr>
+                <td data-label="Element">C</td>
+                <td data-label="Atomic No.">6</td>
+                <td data-label="Configuration">1s² 2s² 2p²</td>
+              </tr>
+              <tr>
+                <td data-label="Element">O</td>
+                <td data-label="Atomic No.">8</td>
+                <td data-label="Configuration">1s² 2s² 2p⁴</td>
+              </tr>
+              <tr>
+                <td data-label="Element">Na</td>
+                <td data-label="Atomic No.">11</td>
+                <td data-label="Configuration">1s² 2s² 2p⁶ 3s¹</td>
+              </tr>
+              <tr>
+                <td data-label="Element">Cl</td>
+                <td data-label="Atomic No.">17</td>
+                <td data-label="Configuration">1s² 2s² 2p⁶ 3s² 3p⁵</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tips & Key Concepts -->
+    <section class="unit-section" id="tips-key-concepts">
+      <h2><span class="icon">💡</span>Tips & Key Concepts to Master</h2>
+      <ul class="unit-list">
+        <li>Fill orbitals using the diagonal (n + l) rule chart.</li>
+        <li>Remember: 4s fills before 3d, but 3d is written first after filling.</li>
+        <li>Check valence electrons to determine group and valency.</li>
+        <li>Apply Aufbau, Pauli, and Hund’s principles to write configurations correctly.</li>
+        <li>Distinguish clearly between shell, subshell, and orbital.</li>
+        <li>Use the octet rule to explain chemical bonding tendencies.</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

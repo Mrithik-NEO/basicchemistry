@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<div class="back-button-container">
+  <a href="index.html" class="back-button">← Back to Home</a>
+</div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unit 1: Matter and Its Nature</title>
+  <style>
+    /* CSS Variables for Theming */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #34495e;
+      --accent-color: #e67e22;
+      --light-bg: #f4f6f8;
+      --dark-text: #2c3e50;
+      --table-header-bg: #34495e;
+      --table-header-text: #ecf0f1;
+      --table-row-odd: #ffffff;
+      --table-row-even: #ecf0f1;
+      --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --body-font: 'Arial', sans-serif;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition-speed: 0.3s;
+    }
+
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: var(--body-font);
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      padding: 20px;
+    }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    a:hover {
+      color: darken(var(--accent-color), 10%);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 30px 40px;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    header h1 {
+      font-family: var(--heading-font);
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+      position: relative;
+      display: inline-block;
+    }
+    header h1::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 4px;
+      background-color: var(--accent-color);
+      margin: 8px auto 0;
+      border-radius: 2px;
+    }
+    header p {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      margin-top: 10px;
+    }
+
+    /* Section Titles */
+    .unit-section {
+      margin-bottom: 40px;
+    }
+    .unit-section h2 {
+      font-family: var(--heading-font);
+      font-size: 1.75rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+    .unit-section h2 .icon {
+      font-size: 1.5rem;
+      margin-right: 10px;
+      color: var(--accent-color);
+    }
+    .unit-section h2::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background-color: var(--secondary-color);
+      margin-left: 15px;
+      border-radius: 2px;
+    }
+
+    /* Bullet List Styles */
+    .unit-list {
+      margin-left: 1.5rem;
+      margin-bottom: 20px;
+      list-style: none;
+    }
+    .unit-list li {
+      position: relative;
+      padding-left: 1.5em;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+    .unit-list li::before {
+      content: '🔹';
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.1rem;
+      line-height: 1;
+      color: var(--accent-color);
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+    thead {
+      background-color: var(--table-header-bg);
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+    th {
+      color: var(--table-header-text);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: var(--table-row-odd);
+    }
+    tbody tr:nth-child(even) {
+      background-color: var(--table-row-even);
+    }
+    tbody tr:hover {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      transition: background-color var(--transition-speed);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      .unit-section h2 {
+        font-size: 1.5rem;
+      }
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      tr {
+        border: 1px solid var(--secondary-color);
+        margin-bottom: 10px;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+      td {
+        position: relative;
+        padding-left: 50%;
+        border: none;
+        border-bottom: 1px solid var(--secondary-color);
+      }
+      td::before {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+      }
+      /* Label each cell */
+      td:nth-of-type(1)::before { content: attr(data-label); }
+      td:nth-of-type(2)::before { content: attr(data-label); }
+      td:nth-of-type(3)::before { content: attr(data-label); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Unit 1 – Matter and Its Nature</h1>
+      <p>Essential Concepts for JEE Foundation Chemistry</p>
+    </header>
+
+    <!-- 1. States of Matter -->
+    <section class="unit-section" id="states-of-matter">
+      <h2><span class="icon">🔹</span>1. States of Matter</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>State</th>
+            <th>Properties</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="State">Solid</td>
+            <td data-label="Properties">
+              Fixed shape and volume, incompressible,<br />
+              particles tightly packed, strong intermolecular forces
+            </td>
+          </tr>
+          <tr>
+            <td data-label="State">Liquid</td>
+            <td data-label="Properties">
+              Fixed volume, variable shape, flows easily,<br />
+              particles less tightly packed than solids
+            </td>
+          </tr>
+          <tr>
+            <td data-label="State">Gas</td>
+            <td data-label="Properties">
+              No fixed shape or volume, highly compressible,<br />
+              particles far apart, weak intermolecular forces
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 2. Physical and Chemical Properties -->
+    <section class="unit-section" id="properties">
+      <h2><span class="icon">🔹</span>2. Physical and Chemical Properties</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Property Type</th>
+            <th>Description</th>
+            <th>Examples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Property Type">Physical</td>
+            <td data-label="Description">
+              Observed/measured without changing composition
+            </td>
+            <td data-label="Examples">Color, melting point, boiling point, density</td>
+          </tr>
+          <tr>
+            <td data-label="Property Type">Chemical</td>
+            <td data-label="Description">
+              Observed only during a chemical reaction
+            </td>
+            <td data-label="Examples">Flammability, acidity, reactivity with oxygen</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. Physical and Chemical Changes -->
+    <section class="unit-section" id="changes">
+      <h2><span class="icon">🔹</span>3. Physical and Chemical Changes</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Change Type</th>
+            <th>Description</th>
+            <th>Examples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Change Type">Physical Change</td>
+            <td data-label="Description">
+              No new substance formed, reversible,<br />
+              no change in chemical composition
+            </td>
+            <td data-label="Examples">Melting of ice, boiling of water</td>
+          </tr>
+          <tr>
+            <td data-label="Change Type">Chemical Change</td>
+            <td data-label="Description">
+              New substance formed, irreversible,<br />
+              chemical composition changes
+            </td>
+            <td data-label="Examples">Burning of paper, rusting of iron</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 4. Elements, Compounds, and Mixtures -->
+    <section class="unit-section" id="element-compound-mixture">
+      <h2><span class="icon">🔹</span>4. Elements, Compounds, and Mixtures</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Examples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Type">Element</td>
+            <td data-label="Description">
+              Pure substance made of one type of atom
+            </td>
+            <td data-label="Examples">Hydrogen (H), Iron (Fe)</td>
+          </tr>
+          <tr>
+            <td data-label="Type">Compound</td>
+            <td data-label="Description">
+              Pure substance of two/more elements chemically combined in fixed ratio
+            </td>
+            <td data-label="Examples">Water (H₂O), CO₂</td>
+          </tr>
+          <tr>
+            <td data-label="Type">Mixture</td>
+            <td data-label="Description">
+              Two/more substances physically combined; no fixed ratio
+            </td>
+            <td data-label="Examples">Air, salt solution, alloys</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 5. Separation Techniques -->
+    <section class="unit-section" id="separation-techniques">
+      <h2><span class="icon">🔹</span>5. Separation Techniques</h2>
+      <p>Used to separate components of mixtures based on physical properties:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Technique</th>
+            <th>Basis of Separation</th>
+            <th>Examples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Technique">Filtration</td>
+            <td data-label="Basis of Separation">Particle size</td>
+            <td data-label="Examples">Sand from water</td>
+          </tr>
+          <tr>
+            <td data-label="Technique">Distillation</td>
+            <td data-label="Basis of Separation">Boiling point</td>
+            <td data-label="Examples">Salt from seawater</td>
+          </tr>
+          <tr>
+            <td data-label="Technique">Sublimation</td>
+            <td data-label="Basis of Separation">Sublimable vs non-sublimable</td>
+            <td data-label="Examples">Camphor from salt</td>
+          </tr>
+          <tr>
+            <td data-label="Technique">Chromatography</td>
+            <td data-label="Basis of Separation">Different solubilities/adsorption</td>
+            <td data-label="Examples">Separating plant pigments</td>
+          </tr>
+          <tr>
+            <td data-label="Technique">Evaporation</td>
+            <td data-label="Basis of Separation">Volatile vs non-volatile</td>
+            <td data-label="Examples">Salt from salt water</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="unit-section" id="key-concepts">
+      <h2><span class="icon">🎯</span>Key Concepts to Master</h2>
+      <ul class="unit-list">
+        <li>Identify and classify different forms of matter.</li>
+        <li>Differentiate between physical and chemical properties/changes.</li>
+        <li>Understand element, compound, and mixture distinctions.</li>
+        <li>Select appropriate separation techniques for mixtures.</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

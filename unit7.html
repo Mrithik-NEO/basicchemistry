@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<div class="back-button-container">
+  <a href="index.html" class="back-button">← Back to Home</a>
+</div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unit 7: Acids, Bases, and Salts</title>
+  <style>
+    /* CSS Variables for Theming */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #34495e;
+      --accent-color: #c0392b;
+      --light-bg: #f4f6f8;
+      --dark-text: #2c3e50;
+      --table-header-bg: #34495e;
+      --table-header-text: #ecf0f1;
+      --table-row-odd: #ffffff;
+      --table-row-even: #ecf0f1;
+      --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --body-font: 'Arial', sans-serif;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition-speed: 0.3s;
+      --gap-large: 32px;
+      --gap-medium: 20px;
+      --gap-small: 12px;
+    }
+
+    /* Global Reset & Basics */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: var(--body-font);
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      padding: 24px;
+    }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    a:hover {
+      color: darken(var(--accent-color), 10%);
+    }
+
+    /* Main Container as Grid */
+    .container {
+      display: grid;
+      gap: var(--gap-large);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: var(--gap-large);
+    }
+    header h1 {
+      font-family: var(--heading-font);
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+    }
+    header h1::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 4px;
+      background-color: var(--accent-color);
+      margin: var(--gap-small) auto 0;
+      border-radius: 2px;
+    }
+    header p {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      margin-top: var(--gap-small);
+    }
+
+    /* Section Styling */
+    .unit-section {
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: var(--gap-large) var(--gap-medium);
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    .unit-section h2 {
+      font-family: var(--heading-font);
+      font-size: 1.75rem;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--gap-medium);
+    }
+    .unit-section h2 .icon {
+      font-size: 1.5rem;
+      margin-right: var(--gap-small);
+      color: var(--accent-color);
+    }
+    .unit-section h2::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background-color: var(--secondary-color);
+      margin-left: var(--gap-small);
+      border-radius: 2px;
+    }
+
+    /* Two-Column Grid for Subsections */
+    .section-grid-2 {
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    @media (min-width: 768px) {
+      .section-grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* Bullet List Styles */
+    .unit-list {
+      list-style: none;
+      margin-left: var(--gap-medium);
+    }
+    .unit-list li {
+      position: relative;
+      padding-left: 1.5em;
+      margin-bottom: var(--gap-small);
+      font-size: 1rem;
+    }
+    .unit-list li::before {
+      content: '🔹';
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.1rem;
+      color: var(--accent-color);
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: var(--gap-medium);
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+    thead {
+      background-color: var(--table-header-bg);
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+    th {
+      color: var(--table-header-text);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: var(--table-row-odd);
+    }
+    tbody tr:nth-child(even) {
+      background-color: var(--table-row-even);
+    }
+    tbody tr:hover {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      transition: background-color var(--transition-speed);
+    }
+
+    /* Responsive Table Adjustments */
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      tr {
+        border: 1px solid var(--secondary-color);
+        margin-bottom: var(--gap-medium);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+      td {
+        position: relative;
+        padding-left: 50%;
+        border: none;
+        border-bottom: 1px solid var(--secondary-color);
+      }
+      td::before {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+      }
+      td:nth-of-type(1)::before { content: attr(data-label); }
+      td:nth-of-type(2)::before { content: attr(data-label); }
+      td:nth-of-type(3)::before { content: attr(data-label); }
+      td:nth-of-type(4)::before { content: attr(data-label); }
+      td:nth-of-type(5)::before { content: attr(data-label); }
+    }
+
+    /* Code Styling */
+    code {
+      background-color: #eef3f8;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>Unit 7 – Acids, Bases, and Salts</h1>
+      <p>JEE Foundation: Definitions, pH, Neutralization, and Common Salts</p>
+    </header>
+
+    <!-- 1. Definitions of Acids and Bases -->
+    <section class="unit-section" id="definitions">
+      <h2><span class="icon">🔹</span>1. Definitions of Acids and Bases</h2>
+      <div class="section-grid-2">
+        <!-- Arrhenius Definition -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            📘 Arrhenius Definition
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            <strong>Acid:</strong> Produces H⁺ ions in aqueous solution<br>
+            <code>HCl → H⁺ + Cl⁻</code>
+          </p>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem; margin-top: var(--gap-medium);">
+            <strong>Base:</strong> Produces OH⁻ ions in aqueous solution<br>
+            <code>NaOH → Na⁺ + OH⁻</code>
+          </p>
+        </div>
+        <!-- Bronsted–Lowry Definition -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            📘 Bronsted–Lowry Definition (Intro Level)
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            <strong>Acid:</strong> Proton (H⁺) donor<br>
+            <strong>Base:</strong> Proton (H⁺) acceptor
+          </p>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem; margin-top: var(--gap-medium);">
+            <code>NH₃ + H₂O → NH₄⁺ + OH⁻</code><br>
+            (H₂O acts as acid, NH₃ as base)
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. The pH Scale and Indicators -->
+    <section class="unit-section" id="ph-scale">
+      <h2><span class="icon">🔹</span>2. The pH Scale and Indicators</h2>
+      <div class="section-grid-2">
+        <!-- pH Scale -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            📊 pH Scale
+          </h3>
+          <table>
+            <thead>
+              <tr>
+                <th>pH Range</th>
+                <th>Nature</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="pH Range">0–6</td>
+                <td data-label="Nature">Acidic</td>
+              </tr>
+              <tr>
+                <td data-label="pH Range">7</td>
+                <td data-label="Nature">Neutral</td>
+              </tr>
+              <tr>
+                <td data-label="pH Range">8–14</td>
+                <td data-label="Nature">Basic</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem; margin-top: var(--gap-small);">
+            🧪 Example:<br>
+            <code>HCl → pH ~1</code><br>
+            <code>NaOH → pH ~13</code><br>
+            <code>Water → pH = 7</code>
+          </p>
+        </div>
+        <!-- Indicators -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            🔍 Indicators
+          </h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Indicator</th>
+                <th>Acid Color</th>
+                <th>Base Color</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Indicator">Litmus</td>
+                <td data-label="Acid Color">Red</td>
+                <td data-label="Base Color">Blue</td>
+              </tr>
+              <tr>
+                <td data-label="Indicator">Methyl Orange</td>
+                <td data-label="Acid Color">Red</td>
+                <td data-label="Base Color">Yellow</td>
+              </tr>
+              <tr>
+                <td data-label="Indicator">Phenolphthalein</td>
+                <td data-label="Acid Color">Colorless</td>
+                <td data-label="Base Color">Pink</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Neutralization Reactions -->
+    <section class="unit-section" id="neutralization">
+      <h2><span class="icon">🔹</span>3. Neutralization Reactions</h2>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+        Reaction between an acid and a base to form salt and water.<br>
+        🧪 Example:<br>
+        <code>HCl + NaOH → NaCl + H₂O</code><br>
+        (Exothermic reaction – releases heat)
+      </p>
+    </section>
+
+    <!-- 4. Common Salts and Their Uses -->
+    <section class="unit-section" id="common-salts">
+      <h2><span class="icon">🔹</span>4. Common Salts and Their Uses</h2>
+      <div class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+        <!-- Sodium Chloride -->
+        <li>
+          🧂 <strong>Sodium Chloride (NaCl)</strong> – Table Salt<br>
+          Formed by neutralization: <code>HCl + NaOH → NaCl + H₂O</code><br>
+          Uses:<br>
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 1em);">
+            <li>Food seasoning and preservative</li>
+            <li>Raw material in NaOH and Cl₂ production</li>
+          </ul>
+        </li>
+        <!-- Sodium Bicarbonate -->
+        <li>
+          🍰 <strong>Sodium Bicarbonate (NaHCO₃)</strong> – Baking Soda<br>
+          Mild base.<br>
+          Reaction: <code>NaCl + H₂O + CO₂ + NH₃ → NaHCO₃ + NH₄Cl</code><br>
+          Uses:<br>
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 1em);">
+            <li>Baking (releases CO₂ → makes cakes fluffy)</li>
+            <li>Antacid (neutralizes excess stomach acid)</li>
+            <li>Cleaning agent</li>
+          </ul>
+        </li>
+        <!-- Sodium Carbonate -->
+        <li>
+          🧺 <strong>Sodium Carbonate (Na₂CO₃)</strong> – Washing Soda<br>
+          Prepared from baking soda.<br>
+          Uses:<br>
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 1em);">
+            <li>Removes water hardness (softener)</li>
+            <li>Used in glass, soap, and paper industries</li>
+          </ul>
+        </li>
+        <!-- Plaster of Paris -->
+        <li>
+          🩹 <strong>Plaster of Paris (CaSO₄·½H₂O)</strong><br>
+          Made by heating gypsum (<code>CaSO₄·2H₂O → [heat] CaSO₄·½H₂O + 1½H₂O</code>).<br>
+          Mixed with water to form hard solid (gypsum again).<br>
+          Uses:<br>
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 1em);">
+            <li>Making casts in orthopedics</li>
+            <li>Decorative items</li>
+            <li>Wall repairs</li>
+          </ul>
+        </li>
+      </div>
+    </section>
+
+    <!-- Key Concepts to Master -->
+    <section class="unit-section" id="key-concepts">
+      <h2><span class="icon">🎯</span>Key Concepts to Master</h2>
+      <ul class="unit-list">
+        <li>Identify acids and bases using Arrhenius and Bronsted–Lowry definitions.</li>
+        <li>Use pH scale and indicators to test substances.</li>
+        <li>Understand neutralization and its products.</li>
+        <li>Learn names, formulas, and uses of common salts.</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

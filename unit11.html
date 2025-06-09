@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<div class="back-button-container">
+  <a href="index.html" class="back-button">← Back to Home</a>
+</div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unit 11: States of Matter</title>
+  <style>
+    /* CSS Variables for Theming */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #34495e;
+      --accent-color: #27ae60;
+      --light-bg: #f4f6f8;
+      --dark-text: #2c3e50;
+      --table-header-bg: #34495e;
+      --table-header-text: #ecf0f1;
+      --table-row-odd: #ffffff;
+      --table-row-even: #ecf0f1;
+      --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --body-font: 'Arial', sans-serif;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition-speed: 0.3s;
+      --gap-large: 32px;
+      --gap-medium: 20px;
+      --gap-small: 12px;
+    }
+
+    /* Global Reset & Basics */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: var(--body-font);
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      padding: var(--gap-large);
+    }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    a:hover {
+      color: darken(var(--accent-color), 10%);
+    }
+
+    /* Main Container as Grid */
+    .container {
+      display: grid;
+      gap: var(--gap-large);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: var(--gap-large);
+    }
+    header h1 {
+      font-family: var(--heading-font);
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+    }
+    header h1::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 4px;
+      background-color: var(--accent-color);
+      margin: var(--gap-small) auto 0;
+      border-radius: 2px;
+    }
+    header p {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      margin-top: var(--gap-small);
+    }
+
+    /* Section Styling */
+    .unit-section {
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: var(--gap-large) var(--gap-medium);
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    .unit-section h2 {
+      font-family: var(--heading-font);
+      font-size: 1.75rem;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--gap-medium);
+    }
+    .unit-section h2 .icon {
+      font-size: 1.5rem;
+      margin-right: var(--gap-small);
+      color: var(--accent-color);
+    }
+    .unit-section h2::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background-color: var(--secondary-color);
+      margin-left: var(--gap-small);
+      border-radius: 2px;
+    }
+
+    /* Two-Column Grid for Subsections */
+    .section-grid-2 {
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    @media (min-width: 768px) {
+      .section-grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* Bullet List Styles */
+    .unit-list {
+      list-style: none;
+      margin-left: var(--gap-medium);
+    }
+    .unit-list li {
+      position: relative;
+      padding-left: 1.5em;
+      margin-bottom: var(--gap-small);
+      font-size: 1rem;
+    }
+    .unit-list li::before {
+      content: '🔹';
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.1rem;
+      color: var(--accent-color);
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: var(--gap-medium);
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+    thead {
+      background-color: var(--table-header-bg);
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+    th {
+      color: var(--table-header-text);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: var(--table-row-odd);
+    }
+    tbody tr:nth-child(even) {
+      background-color: var(--table-row-even);
+    }
+    tbody tr:hover {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      transition: background-color var(--transition-speed);
+    }
+
+    /* Responsive Table Adjustments */
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      tr {
+        border: 1px solid var(--secondary-color);
+        margin-bottom: var(--gap-medium);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+      td {
+        position: relative;
+        padding-left: 50%;
+        border: none;
+        border-bottom: 1px solid var(--secondary-color);
+      }
+      td::before {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+      }
+      td:nth-of-type(1)::before { content: attr(data-label); }
+      td:nth-of-type(2)::before { content: attr(data-label); }
+      td:nth-of-type(3)::before { content: attr(data-label); }
+      td:nth-of-type(4)::before { content: attr(data-label); }
+      td:nth-of-type(5)::before { content: attr(data-label); }
+    }
+
+    /* Code Styling */
+    code {
+      background-color: #eef3f8;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>Unit 11 – States of Matter</h1>
+      <p>JEE Foundation: Solids, Liquids, Gases, and Their Laws</p>
+    </header>
+
+    <!-- 1. Properties of Solids, Liquids, and Gases -->
+    <section class="unit-section" id="properties-states">
+      <h2><span class="icon">🔹</span>1. Properties of Solids, Liquids, and Gases</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Solids</th>
+            <th>Liquids</th>
+            <th>Gases</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Property">Shape</td>
+            <td data-label="Solids">Fixed</td>
+            <td data-label="Liquids">Not fixed (takes shape of container)</td>
+            <td data-label="Gases">Not fixed</td>
+          </tr>
+          <tr>
+            <td data-label="Property">Volume</td>
+            <td data-label="Solids">Fixed</td>
+            <td data-label="Liquids">Fixed</td>
+            <td data-label="Gases">Not fixed</td>
+          </tr>
+          <tr>
+            <td data-label="Property">Compressibility</td>
+            <td data-label="Solids">Negligible</td>
+            <td data-label="Liquids">Slightly compressible</td>
+            <td data-label="Gases">Highly compressible</td>
+          </tr>
+          <tr>
+            <td data-label="Property">Intermolecular Force</td>
+            <td data-label="Solids">Strong</td>
+            <td data-label="Liquids">Moderate</td>
+            <td data-label="Gases">Very weak</td>
+          </tr>
+          <tr>
+            <td data-label="Property">Particle Motion</td>
+            <td data-label="Solids">Vibrate in fixed positions</td>
+            <td data-label="Liquids">Slide over one another</td>
+            <td data-label="Gases">Move freely and randomly</td>
+          </tr>
+          <tr>
+            <td data-label="Property">Density</td>
+            <td data-label="Solids">High</td>
+            <td data-label="Liquids">Medium</td>
+            <td data-label="Gases">Low</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 2. Gas Laws -->
+    <section class="unit-section" id="gas-laws">
+      <h2><span class="icon">🔹</span>2. Gas Laws</h2>
+      <div class="section-grid-2">
+        <!-- Boyle's Law -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            📘 Boyle’s Law
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            At constant temperature, pressure is inversely proportional to volume:<br>
+            <strong>P ∝ 1/V (T constant)</strong><br>
+            <code>P<sub>1</sub>V<sub>1</sub> = P<sub>2</sub>V<sub>2</sub></code><br>
+            📌 As volume ↑ → pressure ↓ and vice versa.
+          </p>
+        </div>
+        <!-- Charles's Law -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            📘 Charles’ Law
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            At constant pressure, volume is directly proportional to absolute temperature (in K):<br>
+            <strong>V ∝ T (P constant)</strong><br>
+            <code>V<sub>1</sub>/T<sub>1</sub> = V<sub>2</sub>/T<sub>2</sub></code><br>
+            📌 As temperature ↑ → volume ↑.
+          </p>
+        </div>
+        <!-- Combined Gas Law -->
+        <div style="grid-column: span 2;">
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            📘 Combined Gas Law
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Combines Boyle’s and Charles’ laws (when pressure, volume, and temperature change):<br>
+            <code>P<sub>1</sub>V<sub>1</sub>/T<sub>1</sub> = P<sub>2</sub>V<sub>2</sub>/T<sub>2</sub></code><br>
+            Used when all three variables change.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Diffusion and Effusion -->
+    <section class="unit-section" id="diffusion-effusion">
+      <h2><span class="icon">🔹</span>3. Diffusion and Effusion</h2>
+      <div class="section-grid-2">
+        <!-- Diffusion -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            💨 Diffusion
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            The spreading of gas particles from a region of higher concentration to lower concentration.<br>
+            <strong>Example:</strong> Smell of perfume spreading in a room.
+          </p>
+        </div>
+        <!-- Effusion -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            🎈 Effusion
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            The movement of gas particles through a small hole without collisions between them.<br>
+            📌 Described by Graham’s Law:<br>
+            <code>r<sub>1</sub>/r<sub>2</sub> = √(M<sub>2</sub>/M<sub>1</sub>)</code><br>
+            Where <strong>r</strong> = rate of diffusion/effusion, <strong>M</strong> = molar mass of gases.<br>
+            Lighter gases effuse/diffuse faster.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Change of State of Matter -->
+    <section class="unit-section" id="change-state">
+      <h2><span class="icon">🔹</span>4. Change of State of Matter</h2>
+      <div class="unit-list">
+        <!-- Melting -->
+        <li>
+          🔄 <strong>Melting</strong><br>
+          Solid → Liquid<br>
+          Occurs at melting point. Heat is absorbed (endothermic).<br>
+          <strong>Example:</strong> Ice → Water at 0°C.
+        </li>
+        <!-- Boiling -->
+        <li style="margin-top: var(--gap-medium);">
+          🌡️ <strong>Boiling</strong><br>
+          Liquid → Gas<br>
+          Occurs at boiling point. Heat is absorbed.<br>
+          <strong>Example:</strong> Water → Steam at 100°C (1 atm).
+        </li>
+        <!-- Sublimation -->
+        <li style="margin-top: var(--gap-medium);">
+          🌬️ <strong>Sublimation</strong><br>
+          Solid → Gas (directly without becoming liquid).<br>
+          Endothermic process.<br>
+          <strong>Substances that undergo sublimation:</strong> Camphor, Naphthalene, Ammonium chloride.<br>
+          <em>Reverse of sublimation: Deposition (Gas → Solid).</em>
+        </li>
+      </div>
+    </section>
+
+    <!-- Key Concepts to Master -->
+    <section class="unit-section" id="key-concepts">
+      <h2><span class="icon">🎯</span>Key Concepts to Master</h2>
+      <ul class="unit-list">
+        <li>Compare properties of solids, liquids, and gases.</li>
+        <li>Apply Boyle’s, Charles’, and Combined Gas Laws.</li>
+        <li>Understand real-life examples of diffusion and effusion.</li>
+        <li>Learn energy changes during melting, boiling, and sublimation.</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

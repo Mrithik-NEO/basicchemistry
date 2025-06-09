@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<div class="back-button-container">
+  <a href="index.html" class="back-button">← Back to Home</a>
+</div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unit 9: Metals and Non-Metals</title>
+  <style>
+    /* CSS Variables for Theming */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #34495e;
+      --accent-color: #16a085;
+      --light-bg: #f4f6f8;
+      --dark-text: #2c3e50;
+      --table-header-bg: #34495e;
+      --table-header-text: #ecf0f1;
+      --table-row-odd: #ffffff;
+      --table-row-even: #ecf0f1;
+      --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --body-font: 'Arial', sans-serif;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition-speed: 0.3s;
+      --gap-large: 32px;
+      --gap-medium: 20px;
+      --gap-small: 12px;
+    }
+
+    /* Global Reset & Basics */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: var(--body-font);
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      padding: var(--gap-large);
+    }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    a:hover {
+      color: darken(var(--accent-color), 10%);
+    }
+
+    /* Main Container as Grid */
+    .container {
+      display: grid;
+      gap: var(--gap-large);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: var(--gap-large);
+    }
+    header h1 {
+      font-family: var(--heading-font);
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+    }
+    header h1::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 4px;
+      background-color: var(--accent-color);
+      margin: var(--gap-small) auto 0;
+      border-radius: 2px;
+    }
+    header p {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      margin-top: var(--gap-small);
+    }
+
+    /* Section Styling */
+    .unit-section {
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: var(--gap-large) var(--gap-medium);
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    .unit-section h2 {
+      font-family: var(--heading-font);
+      font-size: 1.75rem;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--gap-medium);
+    }
+    .unit-section h2 .icon {
+      font-size: 1.5rem;
+      margin-right: var(--gap-small);
+      color: var(--accent-color);
+    }
+    .unit-section h2::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background-color: var(--secondary-color);
+      margin-left: var(--gap-small);
+      border-radius: 2px;
+    }
+
+    /* Two-Column Grid for Subsections */
+    .section-grid-2 {
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    @media (min-width: 768px) {
+      .section-grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* Bullet List Styles */
+    .unit-list {
+      list-style: none;
+      margin-left: var(--gap-medium);
+    }
+    .unit-list li {
+      position: relative;
+      padding-left: 1.5em;
+      margin-bottom: var(--gap-small);
+      font-size: 1rem;
+    }
+    .unit-list li::before {
+      content: '🔹';
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.1rem;
+      color: var(--accent-color);
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: var(--gap-medium);
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+    thead {
+      background-color: var(--table-header-bg);
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+    th {
+      color: var(--table-header-text);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: var(--table-row-odd);
+    }
+    tbody tr:nth-child(even) {
+      background-color: var(--table-row-even);
+    }
+    tbody tr:hover {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      transition: background-color var(--transition-speed);
+    }
+
+    /* Responsive Table Adjustments */
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      tr {
+        border: 1px solid var(--secondary-color);
+        margin-bottom: var(--gap-medium);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+      td {
+        position: relative;
+        padding-left: 50%;
+        border: none;
+        border-bottom: 1px solid var(--secondary-color);
+      }
+      td::before {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+      }
+      td:nth-of-type(1)::before { content: attr(data-label); }
+      td:nth-of-type(2)::before { content: attr(data-label); }
+      td:nth-of-type(3)::before { content: attr(data-label); }
+      td:nth-of-type(4)::before { content: attr(data-label); }
+      td:nth-of-type(5)::before { content: attr(data-label); }
+    }
+
+    /* Code Styling */
+    code {
+      background-color: #eef3f8;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>Unit 9 – Metals and Non-Metals</h1>
+      <p>JEE Foundation: Physical, Chemical Properties, Reactivity, and Extraction</p>
+    </header>
+
+    <!-- 1. Physical Properties -->
+    <section class="unit-section" id="physical-properties">
+      <h2><span class="icon">🔹</span>1. Physical Properties</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Metals</th>
+            <th>Non-Metals</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Property">Lustre</td>
+            <td data-label="Metals">Shiny (metallic luster)</td>
+            <td data-label="Non-Metals">Dull (except iodine)</td>
+          </tr>
+          <tr>
+            <td data-label="Property">Malleability</td>
+            <td data-label="Metals">Can be beaten into thin sheets</td>
+            <td data-label="Non-Metals">Brittle (cannot be beaten)</td>
+          </tr>
+          <tr>
+            <td data-label="Property">Ductility</td>
+            <td data-label="Metals">Can be drawn into wires</td>
+            <td data-label="Non-Metals">Non-ductile</td>
+          </tr>
+          <tr>
+            <td data-label="Property">Conductivity</td>
+            <td data-label="Metals">Good conductors of heat & electricity</td>
+            <td data-label="Non-Metals">Poor conductors (except graphite)</td>
+          </tr>
+          <tr>
+            <td data-label="Property">State</td>
+            <td data-label="Metals">Solid (except mercury)</td>
+            <td data-label="Non-Metals">Solid/gas (except bromine – liquid)</td>
+          </tr>
+          <tr>
+            <td data-label="Property">Sonorous</td>
+            <td data-label="Metals">Produces ringing sound</td>
+            <td data-label="Non-Metals">Not sonorous</td>
+          </tr>
+          <tr>
+            <td data-label="Property">Density & Strength</td>
+            <td data-label="Metals">Generally high</td>
+            <td data-label="Non-Metals">Generally low</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 2. Chemical Properties -->
+    <section class="unit-section" id="chemical-properties">
+      <h2><span class="icon">🔹</span>2. Chemical Properties</h2>
+      <div class="section-grid-2">
+        <!-- Left Column: Reaction with Oxygen & Water -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            ⚛️ Reaction with Oxygen
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Metals form metal oxides (basic or amphoteric).<br>
+            🧪 Example: <code>4Na + O<sub>2</sub> → 2Na<sub>2</sub>O</code>
+          </p>
+          <p style="margin-left: var(--gap-medium); margin-top: var(--gap-small); font-size: 1rem;">
+            Non-metals form non-metal oxides (acidic).<br>
+            🧪 Example: <code>C + O<sub>2</sub> → CO<sub>2</sub></code>
+          </p>
+
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin: var(--gap-medium) 0 var(--gap-small);">
+            💧 Reaction with Water
+          </h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Metal</th>
+                <th>Reaction with Water</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Metal">Sodium (Na)</td>
+                <td data-label="Reaction with Water">Reacts violently</td>
+              </tr>
+              <tr>
+                <td data-label="Metal">Magnesium (Mg)</td>
+                <td data-label="Reaction with Water">Reacts slowly with hot water</td>
+              </tr>
+              <tr>
+                <td data-label="Metal">Iron (Fe)</td>
+                <td data-label="Reaction with Water">Reacts very slowly (steam only)</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            🧪 Example: <code>2K + 2H<sub>2</sub>O → 2KOH + H<sub>2</sub>↑</code><br>
+            Non-metals usually do not react with water.
+          </p>
+        </div>
+        <!-- Right Column: Reaction with Acids & Displacement -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            ⚗️ Reaction with Acids
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Metals form salt + hydrogen gas.<br>
+            🧪 Example: <code>Zn + 2HCl → ZnCl<sub>2</sub> + H<sub>2</sub>↑</code><br>
+            Non-metals generally do not react with dilute acids.
+          </p>
+
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin: var(--gap-medium) 0 var(--gap-small);">
+            🔄 Displacement Reactions
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            A more reactive metal displaces a less reactive metal from its salt solution.<br>
+            🧪 Example: <code>Fe + CuSO<sub>4</sub> → FeSO<sub>4</sub> + Cu</code>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Reactivity Series -->
+    <section class="unit-section" id="reactivity-series">
+      <h2><span class="icon">🔹</span>3. Reactivity Series</h2>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+        A list of metals arranged in decreasing order of reactivity:<br>
+        <strong>K > Na > Ca > Mg > Al > Zn > Fe > Pb > H > Cu > Hg > Ag > Au</strong>
+      </p>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem; margin-top: var(--gap-small);">
+        🔺 More reactive metals displace less reactive ones from compounds.<br>
+        🔻 Less reactive metals do not displace more reactive ones.
+      </p>
+    </section>
+
+    <!-- 4. Extraction of Metals (Overview) -->
+    <section class="unit-section" id="extraction-metals">
+      <h2><span class="icon">🔹</span>4. Extraction of Metals (Overview)</h2>
+      <div class="section-grid-2">
+        <!-- Ores -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            🏔️ Ores
+          </h3>
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+            <li>Bauxite (Al ore) – Al<sub>2</sub>O<sub>3</sub>·2H<sub>2</sub>O</li>
+            <li>Hematite (Fe ore) – Fe<sub>2</sub>O<sub>3</sub></li>
+          </ul>
+        </div>
+        <!-- Steps in Metallurgy -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            🔥 Steps in Metallurgy (Simplified)
+          </h3>
+          <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+            <li><strong>Concentration:</strong> Removing impurities from ore</li>
+            <li><strong>Calcination/Roasting:</strong> Heating (absence/presence of air) to remove volatile impurities</li>
+            <li><strong>Reduction:</strong> Using reducing agent (carbon or electrolysis) to extract pure metal</li>
+            <li><strong>Refining:</strong> Final purification (often by electrolysis)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Corrosion and Prevention -->
+    <section class="unit-section" id="corrosion">
+      <h2><span class="icon">🔹</span>5. Corrosion and Prevention</h2>
+      <div class="section-grid-2">
+        <!-- Corrosion Definition -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            ⚠️ Corrosion
+          </h3>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+            Slow destruction of metals by reaction with air/moisture. Most common: Rusting of iron.
+          </p>
+          <p style="margin-left: var(--gap-medium); font-size: 1rem; margin-top: var(--gap-small);">
+            🧪 Example: <code>4Fe + 3O<sub>2</sub> + 6H<sub>2</sub>O → 4Fe(OH)<sub>3</sub></code>
+          </p>
+        </div>
+        <!-- Prevention Methods -->
+        <div>
+          <h3 style="font-family: var(--heading-font); font-size: 1.25rem; color: var(--primary-color); margin-bottom: var(--gap-small);">
+            🛡️ Prevention of Corrosion
+          </h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Method">Galvanization</td>
+                <td data-label="Description">Coating iron with zinc (Zn prevents rusting)</td>
+              </tr>
+              <tr>
+                <td data-label="Method">Painting</td>
+                <td data-label="Description">Forms barrier from moisture/air</td>
+              </tr>
+              <tr>
+                <td data-label="Method">Oiling/Greasing</td>
+                <td data-label="Description">Used for machine parts</td>
+              </tr>
+              <tr>
+                <td data-label="Method">Alloying</td>
+                <td data-label="Description">Mixing metals to improve resistance (e.g., stainless steel)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Concepts to Master -->
+    <section class="unit-section" id="key-concepts">
+      <h2><span class="icon">🎯</span>Key Concepts to Master</h2>
+      <ul class="unit-list">
+        <li>Compare physical and chemical properties of metals vs non-metals.</li>
+        <li>Identify reactions of metals with water, acid, and oxygen.</li>
+        <li>Understand the reactivity series and displacement reactions.</li>
+        <li>Grasp the basic steps in extraction of metals from ores.</li>
+        <li>Know the causes and prevention methods of corrosion.</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

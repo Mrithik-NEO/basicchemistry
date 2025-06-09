@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JEE (Advanced) 2024 – Question 6</title>
+  <style>
+    /* CSS Variables for Theming */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #34495e;
+      --accent-color: #c0392b;
+      --light-bg: #f4f6f8;
+      --dark-text: #2c3e50;
+      --card-bg: #ffffff;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --gap-large: 32px;
+      --gap-medium: 20px;
+      --gap-small: 12px;
+      --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --body-font: 'Arial', sans-serif;
+      --transition-speed: 0.3s;
+    }
+
+    /* Global Reset & Basics */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: var(--body-font);
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      padding: var(--gap-large);
+    }
+
+    /* Container */
+    .container {
+      display: grid;
+      gap: var(--gap-large);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+    }
+    header h1 {
+      font-family: var(--heading-font);
+      font-size: 2rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+    }
+    header h1::after {
+      content: '';
+      display: block;
+      width: 40%;
+      height: 3px;
+      background-color: var(--accent-color);
+      margin: var(--gap-small) auto 0;
+      border-radius: 2px;
+    }
+    header p {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      margin-top: var(--gap-small);
+    }
+
+    /* Question Card */
+    .question-card {
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: var(--gap-large) var(--gap-medium);
+    }
+    .question-card h2 {
+      font-family: var(--heading-font);
+      font-size: 1.25rem;
+      color: var(--primary-color);
+      margin-bottom: var(--gap-medium);
+    }
+    .question-text {
+      margin-bottom: var(--gap-medium);
+      font-size: 1rem;
+    }
+
+    /* Options Grid */
+    .options-grid {
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    @media (min-width: 600px) {
+      .options-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .option {
+      background-color: #fbfbfb;
+      border-radius: var(--border-radius);
+      border: 1px solid var(--secondary-color);
+      padding: var(--gap-small) var(--gap-medium);
+      transition: background-color var(--transition-speed), transform var(--transition-speed);
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    .option:hover {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      margin-top: var(--gap-large);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>JEE (Advanced) 2024 – Paper 1</h1>
+      <p><strong>Question 6</strong></p>
+    </header>
+
+    <!-- Question Card -->
+    <div class="question-card">
+      <h2>Reaction Sequence and Correct Statements</h2>
+      <div class="question-text">
+        <p>
+          Reaction of <em>iso‐propylbenzene</em> with <strong>O₂</strong> followed by treatment with <strong>H₃O⁺</strong> forms phenol and a by‐product <strong>P</strong>.  
+          Reaction of <strong>P</strong> with 3 equivalents of <strong>Cl₂</strong> gives compound <strong>Q</strong>.  
+          Treatment of <strong>Q</strong> with <strong>Ca(OH)₂</strong> produces compound <strong>R</strong> and calcium salt <strong>S</strong>.
+        </p>
+        <p>
+          The correct statement(s) regarding <strong>P</strong>, <strong>Q</strong>, <strong>R</strong> and <strong>S</strong> is (are):
+        </p>
+      </div>
+
+      <!-- Options Grid -->
+      <div class="options-grid">
+        <div class="option">
+          <strong>(A)</strong> Reaction of <strong>P</strong> with <strong>R</strong> in the presence of KOH followed by acidification gives <code>HO–CCl₃</code>
+        </div>
+        <div class="option">
+          <strong>(B)</strong> Reaction of <strong>R</strong> with <strong>O₂</strong> in the presence of light gives phosgene gas
+        </div>
+        <div class="option">
+          <strong>(C)</strong> <strong>Q</strong> reacts with aqueous NaOH to produce <code>Cl₃CCH₂OH</code> and <code>Cl₃CCOO⁻Na⁺</code>
+        </div>
+        <div class="option">
+          <strong>(D)</strong> <strong>S</strong> on heating gives <strong>P</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      &copy; 2024 JEE (Advanced) Revision. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<div class="back-button-container">
+  <a href="index.html" class="back-button">← Back to Home</a>
+</div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unit-Wise Connection for Multi-Step Organic Pathway</title>
+  <style>
+    /* CSS Variables for Consistent Theming */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #34495e;
+      --accent-color: #16a085;
+      --light-bg: #f4f6f8;
+      --dark-text: #2c3e50;
+      --table-header-bg: #34495e;
+      --table-header-text: #ecf0f1;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --gap-large: 32px;
+      --gap-medium: 20px;
+      --gap-small: 12px;
+      --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --body-font: 'Arial', sans-serif;
+      --transition-speed: 0.3s;
+    }
+
+    /* Global Reset & Basics */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: var(--body-font);
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      padding: var(--gap-large);
+    }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    a:hover {
+      color: darken(var(--accent-color), 10%);
+    }
+
+    /* Main Container as Grid */
+    .container {
+      display: grid;
+      gap: var(--gap-large);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: var(--gap-large);
+    }
+    header h1 {
+      font-family: var(--heading-font);
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+    }
+    header h1::after {
+      content: '';
+      display: block;
+      width: 50%;
+      height: 4px;
+      background-color: var(--accent-color);
+      margin: var(--gap-small) auto 0;
+      border-radius: 2px;
+    }
+    header p {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      margin-top: var(--gap-small);
+    }
+
+    /* Section Styling */
+    .unit-section {
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: var(--gap-large) var(--gap-medium);
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    .unit-section h2 {
+      font-family: var(--heading-font);
+      font-size: 1.75rem;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--gap-medium);
+    }
+    .unit-section h2 .icon {
+      font-size: 1.5rem;
+      margin-right: var(--gap-small);
+      color: var(--accent-color);
+    }
+    .unit-section h2::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background-color: var(--secondary-color);
+      margin-left: var(--gap-small);
+      border-radius: 2px;
+    }
+
+    /* Two-Column Grid for Subsections */
+    .section-grid-2 {
+      display: grid;
+      gap: var(--gap-medium);
+    }
+    @media (min-width: 768px) {
+      .section-grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* Bullet List Styles */
+    .unit-list {
+      list-style: none;
+      margin-left: var(--gap-medium);
+    }
+    .unit-list li {
+      position: relative;
+      padding-left: 1.5em;
+      margin-bottom: var(--gap-small);
+      font-size: 1rem;
+    }
+    .unit-list li::before {
+      content: '🔹';
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.1rem;
+      color: var(--accent-color);
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: var(--gap-medium);
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+    thead {
+      background-color: var(--table-header-bg);
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+    th {
+      color: var(--table-header-text);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: #ffffff;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #ecf0f1;
+    }
+    tbody tr:hover {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      transition: background-color var(--transition-speed);
+    }
+
+    /* Responsive Table Adjustments */
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      tr {
+        border: 1px solid var(--secondary-color);
+        margin-bottom: var(--gap-medium);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+      td {
+        position: relative;
+        padding-left: 50%;
+        border: none;
+        border-bottom: 1px solid var(--secondary-color);
+      }
+      td::before {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+      }
+      td:nth-of-type(1)::before { content: attr(data-label); }
+      td:nth-of-type(2)::before { content: attr(data-label); }
+      td:nth-of-type(3)::before { content: attr(data-label); }
+      td:nth-of-type(4)::before { content: attr(data-label); }
+      td:nth-of-type(5)::before { content: attr(data-label); }
+    }
+
+    /* Code Styling */
+    code {
+      background-color: #eef3f8;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>Unit-Wise Connection for Multi-Step Organic Pathway</h1>
+      <p>Mapping relevant JEE Foundation and Bonus Topics to the cumene → phenol/acetone sequence and subsequent transformations.</p>
+    </header>
+
+    <!-- Unit 6: Chemical Bonding -->
+    <section class="unit-section" id="unit-6">
+      <h2><span class="icon">🔹</span>Unit 6: Chemical Bonding</h2>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+        <strong>Relevance:</strong> Though not directly involved in mechanism steps, a fundamental grasp of bond stability and structure helps visualize:
+      </p>
+      <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+        <li>Stability of aromatic ring in iso-propylbenzene (cumene).</li>
+        <li>Bonding changes during radical chlorination and oxidation.</li>
+      </ul>
+    </section>
+
+    <!-- Unit 10: Carbon and Its Compounds -->
+    <section class="unit-section" id="unit-10">
+      <h2><span class="icon">🔹</span>Unit 10: Carbon and Its Compounds</h2>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+        <strong>Key Concepts Applied:</strong>
+      </p>
+      <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+        <li><strong>Aromatic Chemistry:</strong> Starting compound is iso-propylbenzene (cumene), understanding resonance stabilization of benzene.</li>
+        <li><strong>Functional Groups:</strong> Transformation to phenol (–OH) and subsequent oxidation to benzoic acid derivatives (–COOH).</li>
+        <li><strong>Side-Chain Oxidation:</strong> Oxidation of alkyl side chain on benzene → benzoic acid, catalyzed in laboratory/industry contexts.</li>
+      </ul>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem; margin-top: var(--gap-small);">
+        <strong>Sequence:</strong><br>
+        Cumene + O₂ → Cumene hydroperoxide → Phenol + Acetone (P)  
+        <br>
+        Acetone (P) + 3Cl₂ → Trichloropropanone (Q)  
+        <br>
+        Q + Ca(OH)₂ → Chloroform (R) + Calcium salt of acid (S)
+      </p>
+    </section>
+
+    <!-- Unit 15: Basic Organic Chemistry -->
+    <section class="unit-section" id="unit-15">
+      <h2><span class="icon">🔹</span>Unit 15: Basic Organic Chemistry (Intro)</h2>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+        <strong>Core Reaction Types Demonstrated:</strong>
+      </p>
+      <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+        <li>Radical Substitution: Chlorination of acetone → trichloropropanone (Q).</li>
+        <li>Oxidation: Side-chain oxidation of iso-propylbenzene (cumene) to cumene hydroperoxide, then to phenol.</li>
+        <li>Haloform Reaction: Trichloropropanone (Q) + base → Chloroform (R) + calcium salt (S).</li>
+        <li>Photochemical Oxidation: Chloroform (R) + O₂ (light) → Phosgene (industrial relevance, bonus topic).</li>
+      </ul>
+    </section>
+
+    <!-- Bonus Topic: Nomenclature of Organic Compounds -->
+    <section class="unit-section" id="bonus-nomenclature">
+      <h2><span class="icon">🔹</span>Bonus Topic: Nomenclature of Organic Compounds</h2>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+        <strong>Structures to Recognize:</strong>
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Compound</th>
+            <th>Structural Feature</th>
+            <th>IUPAC Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Compound">Phenol</td>
+            <td data-label="Structural Feature">Aromatic –OH group</td>
+            <td data-label="IUPAC Name"><code>C₆H₅OH</code></td>
+          </tr>
+          <tr>
+            <td data-label="Compound">Trichloropropanone (Q)</td>
+            <td data-label="Structural Feature">CCl₃–CO–CH₃ (α-trichloromethyl ketone)</td>
+            <td data-label="IUPAC Name"><code>1,1,1-Trichloropropan-2-one</code></td>
+          </tr>
+          <tr>
+            <td data-label="Compound">Chloroform (R)</td>
+            <td data-label="Structural Feature">CHCl₃</td>
+            <td data-label="IUPAC Name"><code>Trichloromethane</code></td>
+          </tr>
+          <tr>
+            <td data-label="Compound">Phosgene</td>
+            <td data-label="Structural Feature">COCl₂ (carbonyl dichloride)</td>
+            <td data-label="IUPAC Name"><code>Carbonyl dichloride</code></td>
+          </tr>
+          <tr>
+            <td data-label="Compound">Calcium Salt of Acid (S)</td>
+            <td data-label="Structural Feature">Ca(OOC–R)₂ (carboxylate salt)</td>
+            <td data-label="IUPAC Name"><code>Calcium 2-oxopropanoate</code> (example)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Bonus Topic: Chemical Industry Processes -->
+    <section class="unit-section" id="bonus-industry">
+      <h2><span class="icon">🔹</span>Bonus Topic: Chemical Industry Processes</h2>
+      <p style="margin-left: var(--gap-medium); font-size: 1rem;">
+        <strong>Industrial Relevance of Steps:</strong>
+      </p>
+      <ul class="unit-list" style="margin-left: calc(var(--gap-medium) + 0.5em);">
+        <li><strong>Cumene to Phenol (Hock Process):</strong> Key large-scale method for phenol and acetone production.</li>
+        <li><strong>Acetone Chlorination:</strong> Generation of trichloromethyl ketones in specialized syntheses (analytical reagents).</li>
+        <li><strong>Haloform Reaction:</strong> Industrial preparation of chloroform; also historically used as anesthetic.</li>
+        <li><strong>Phosgene Formation:</strong> Photochemical oxidation of chloroform to phosgene—historically used to produce isocyanates for polyurethanes (modernly regulated).</li>
+        <li><strong>Calcium Salt Formation:</strong> Neutralization of acids → calcium carboxylates (used in PVC stabilization, animal feed additives).</li>
+      </ul>
+    </section>
+
+    <!-- Specific Reactions in Focus -->
+    <section class="unit-section" id="specific-reactions">
+      <h2><span class="icon">🔹</span>Specific Reactions in Focus</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Compound</th>
+            <th>Role</th>
+            <th>Key Transformation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Compound">P (Acetone)</td>
+            <td data-label="Role">By-product of cumene hydroperoxide → phenol pathway</td>
+            <td data-label="Key Transformation">React with Cl₂ → Trichloropropanone (Q)</td>
+          </tr>
+          <tr>
+            <td data-label="Compound">Q (Trichloropropanone)</td>
+            <td data-label="Role">Trichloromethyl ketone intermediate</td>
+            <td data-label="Key Transformation">Haloform reaction with Ca(OH)₂ → Chloroform (R) + Calcium salt of acid (S)</td>
+          </tr>
+          <tr>
+            <td data-label="Compound">R (Chloroform)</td>
+            <td data-label="Role">Haloform product</td>
+            <td data-label="Key Transformation">Photochemical oxidation (hv/O₂) → Phosgene</td>
+          </tr>
+          <tr>
+            <td data-label="Compound">S (Calcium Salt)</td>
+            <td data-label="Role">Calcium carboxylate byproduct</td>
+            <td data-label="Key Transformation">On heating → keto-rearrangements or decarboxylation (lab-scale)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Conclusion & Study Tips -->
+    <section class="unit-section" id="conclusion-tips">
+      <h2><span class="icon">🎯</span>Conclusion & Study Tips</h2>
+      <ul class="unit-list">
+        <li><strong>Map the full multi-step pathway:</strong> Cumene → Phenol + Acetone (P) → Q → R + S → Phosgene.</li>
+        <li><strong>Revisit Unit Concepts:</strong> Aromatic stability (Unit 10), Radical chlorination (Unit 15), Haloform reaction (Unit 15/Bonus), Photochemical oxidation (Bonus).</li>
+        <li><strong>Practice Named Reactions:</strong> Hock process, haloform, phosgene formation, neutralization of carboxylic acids.</li>
+        <li><strong>Create a Flow Diagram:</strong> Use arrows and structures to visualize stepwise changes and intermediates.</li>
+        <li><strong>Build a Reaction Pathway Sheet:</strong> Track each reagent, condition (Cl₂, Ca(OH)₂, hv/O₂), and product for clarity.</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>
